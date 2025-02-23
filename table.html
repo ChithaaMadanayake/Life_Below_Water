@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Species Conservation Status</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .table-container {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #0B0845;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        table th, table td {
+            padding: 18px;
+            text-align: center;
+            border: 1px solid #4DB8FF;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        table th {
+            background-color: #1E1E1E;
+            color: #DFE4E7;
+            font-weight: bold;
+        }
+
+        table td {
+            color: #DFE4E7;
+            font-weight: 300;
+        }
+
+        table tr:hover {
+            background-color: rgba(77, 184, 255, 0.2);
+            cursor: pointer;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .endangered {
+            background-color: #FF4D4D;
+            color: white;
+        }
+
+        .vulnerable {
+            background-color: #FFA500;
+            color: white;
+        }
+
+        .stable {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .trend {
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .decline {
+            background-color: #FF4D4D;
+            color: white;
+        }
+
+        .increase {
+            background-color: #FFA500;
+            color: white;
+        }
+
+        .description {
+            text-align: center;
+            margin: 40px 0;
+            color: #DFE4E7;
+        }
+
+        .description h2 {
+            font-size: 28px;
+            color: #4DB8FF;
+            margin-bottom: 10px;
+        }
+
+        .description p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cta-section {
+            background-color: #095D8C;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        .cta-section h3 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #FF4D4D;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🌊 Life Below Water</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#sitemap">Sitemap</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <section class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Species</th>
+                    <th>Status</th>
+                    <th>Population Trend</th>
+                    <th>Conservation Efforts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🐢 Sea Turtles</td>
+                    <td><span class="status endangered">Endangered</span></td>
+                    <td><span class="trend decline">Declining</span></td>
+                    <td>15 Active Projects</td>
+                </tr>
+                <tr>
+                    <td>🦈 Sharks</td>
+                    <td><span class="status vulnerable">Vulnerable</span></td>
+                    <td><span class="trend stable">Stable</span></td>
+                    <td>10 Active Projects</td>
+                </tr>
+                <tr>
+                    <td>🐬 Dolphins</td>
+                    <td><span class="status stable">Stable</span></td>
+                    <td><span class="trend increase">Increasing</span></td>
+                    <td>8 Active Projects</td>
+                </tr>
+                <tr>
+                    <td>🦑 Squids</td>
+                    <td><span class="status vulnerable">Vulnerable</span></td>
+                    <td><span class="trend decline">Declining</span></td>
+                    <td>5 Active Projects</td>
+                </tr>
+                <tr>
+                    <td>🐙 Octopuses</td>
+                    <td><span class="status vulnerable">Vulnerable</span></td>
+                    <td><span class="trend decline">Declining</span></td>
+                    <td>3 Active Projects</td>
+                </tr>
+                <tr>
+                    <td>🐋 Whales</td>
+                    <td><span class="status endangered">Endangered</span></td>
+                    <td><span class="trend stable">Stable</span></td>
+                    <td>20 Active Projects</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="description">
+        <h2>Understanding Marine Conservation</h2>
+        <p>Our oceans are home to diverse species, some of which are endangered or vulnerable due to human activity and climate change. Marine conservation efforts are crucial in protecting these species and maintaining the balance of marine ecosystems. Together, we can help preserve marine biodiversity through awareness, action, and support for ongoing conservation efforts.</p>
+    </section>
+
+    <section class="cta-section">
+        <h3>Join Us in Protecting Marine Life</h3>
+        <p>Your participation in marine conservation can make a difference. Learn more, donate to active projects, or simply spread the word about the importance of protecting our oceans!</p>
+        <a href="https://oceana.org/donate" class="cta-button">Donate Now</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
