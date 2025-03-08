@@ -19,7 +19,16 @@ window.addEventListener('scroll', function () {
     // Ensure tiles section appears after scroll
     if (currentScroll > videoSection.offsetHeight) {
         tilesSection.style.marginTop = '0';  // Make sure tiles section appears after scroll
+        tilesSection.style.opacity = '1';  // Fade in tiles
     } else {
         tilesSection.style.marginTop = '100px';  // Keep space for video section at top
+        tilesSection.style.opacity = '0';  // Fade out tiles initially
     }
+});
+
+// Apply smooth transitions using CSS
+document.addEventListener("DOMContentLoaded", function () {
+    videoSection.style.transition = "opacity 0.5s ease-in-out";
+    headerContent.style.transition = "opacity 0.5s ease-in-out";
+    tilesSection.style.transition = "margin-top 0.5s ease-in-out, opacity 0.5s ease-in-out";
 });
