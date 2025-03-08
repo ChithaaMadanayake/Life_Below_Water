@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0B0845;
+            color: #DFE4E7;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .profile-header {
+            text-align: center;
+            padding: 30px;
+            border: 2px solid #DFE4E7;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(223, 228, 231, 0.2);
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px auto;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #DFE4E7;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .avatar-upload {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: rgba(223, 228, 231, 0.8);
+            color: #0B0845;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Introduction Section */
+        .introduction {
+            border: 2px solid #DFE4E7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .introduction:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(223, 228, 231, 0.2);
+        }
+
+        .intro-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #DFE4E7;
+            border-bottom: 1px solid rgba(223, 228, 231, 0.3);
+            padding-bottom: 10px;
+        }
+
+        /* Section Styles */
+        .section {
+            border: 2px solid #DFE4E7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(223, 228, 231, 0.2);
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #DFE4E7;
+            border-bottom: 1px solid rgba(223, 228, 231, 0.3);
+            padding-bottom: 10px;
+        }
+
+        /* Skills Section */
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        /* Slider Container */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 20px;
+            background: rgba(223, 228, 231, 0.1);
+            border: 1px solid #DFE4E7;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        /* Slider Fill */
+        .slider-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: rgba(223, 228, 231, 0.5);
+            border-radius: 3px 0 0 3px;
+            pointer-events: none;
+        }
+
+        /* Slider Handle */
+        .slider-handle {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: #DFE4E7;
+            border-radius: 50%;
+            cursor: grab;
+            z-index: 10;
+        }
+
+        .slider-handle:active {
+            cursor: grabbing;
+        }
+
+        /* Goals Section */
+        .goals-list {
+            list-style-type: none;
+        }
+
+        .goal-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .goal-icon {
+            font-size: 20px;
+            margin-right: 15px;
+            width: 30px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .goal-details {
+            flex: 1;
+        }
+
+        .goal-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .goal-progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(223, 228, 231, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .goal-progress-bar {
+            height: 100%;
+            background: rgba(223, 228, 231, 0.5);
+        }
+
+        /* Volunteering Section */
+        .volunteering-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .volunteering-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .volunteering-icon {
+            font-size: 20px;
+            margin-right: 15px;
+            width: 30px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Interests Section */
+        .interests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .interest-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            border: 1px solid rgba(223, 228, 231, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover {
+            background: rgba(223, 228, 231, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .interest-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .interest-name {
+            font-size: 14px;
+        }
+
+        /* Calendar Section */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 15px;
+        }
+
+        .calendar-day {
+            padding: 10px;
+            border: 1px solid #DFE4E7;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .calendar-day:not(.day-header):hover {
+            background: rgba(223, 228, 231, 0.2);
+        }
+
+        .day-header {
+            font-weight: bold;
+            background: rgba(223, 228, 231, 0.2);
+        }
+
+        .availability-calendar {
+    background-color: #0B0845;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h2 {
+    color: #DFE4E7;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(223, 228, 231, 0.1);
+}
+
+th, td {
+    border: 1px solid #DFE4E7;
+    padding: 10px;
+    text-align: center;
+    color: #DFE4E7;
+}
+
+th {
+    background: rgba(223, 228, 231, 0.2);
+}
+
+td {
+    background: rgba(223, 228, 231, 0.1);
+}
+
+
+.availability-calendar {
+    background-color: #0B0845;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid white; /* Add white border */}
+
+.availability-calendar:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2); /* Glowing shadow */
+}
+
+
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            background: rgba(223, 228, 231, 0.1);
+            border: 1px solid #DFE4E7;
+            padding: 10px;
+            border-radius: 4px;
+            color: #DFE4E7;
+            transition: background 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            background: rgba(223, 228, 231, 0.2);
+            box-shadow: 0 0 5px rgba(223, 228, 231, 0.3);
+        }
+
+        button {
+            background: #DFE4E7;
+            color: #0B0845;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(223, 228, 231, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(223, 228, 231, 0.3);
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #DFE4E7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .interests-container {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="profile-header">
+            <div class="avatar-container">
+                <img src="avatar.jpeg" alt="Profile picture" class="avatar" id="profile-img">
+            </div>
+            <h1 class="profile-name">Bella Raphiel</h1>
+            <p class="profile-title">Marine Conservationist</p>
+        </header>
+
+        <!-- Introduction Section -->
+        <section class="introduction">
+            <h2 class="intro-title">About Me</h2>
+            <p>Hi! I’m Bella , a passionate Marine Conservationist dedicated to protecting and restoring our oceans. Growing up near the coast, I’ve always felt a deep connection to the sea—whether it was snorkeling among vibrant coral reefs or watching sea turtles hatch on the shore. That childhood fascination turned into a lifelong mission to conserve marine ecosystems and advocate for sustainable ocean practices.
+
+                With experience in coral reef restoration, ocean cleanup initiatives, and marine wildlife conservation, I actively work to reduce plastic pollution, protect endangered species, and educate communities on the importance of marine sustainability.
+                
+                When I’m not diving into conservation projects, you’ll find me exploring new coastal destinations, capturing underwater photography, or simply enjoying the peaceful rhythm of the waves. Let’s work together to create a future where our oceans thrive!</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div id="skills-container">
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Coral Reef Restoration</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-fill" style="width: 80%"></div>
+                        <div class="slider-handle" style="left: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Marine Wildlife Conservation</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-fill" style="width: 85%"></div>
+                        <div class="slider-handle" style="left: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Ocean Cleanup & Plastic Pollution Reduction </span>
+                        <span>90%</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-fill" style="width: 90%"></div>
+                        <div class="slider-handle" style="left: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section class="section">
+            <h2 class="section-title">Sustainability Goals</h2>
+            <ul class="goals-list">
+                <li class="goal-item">
+                    
+                    <div class="goal-details">
+                        <div class="goal-name">Reduce Ocean Plastic Pollution </div>
+                        <div class="goal-progress-container">
+                            <div class="goal-progress-bar" style="width: 65%"></div>
+                        </div>
+                        <span>650 / 1000</span>
+                    </div>
+                </li>
+                <li class="goal-item">
+                    
+                    <div class="goal-details">
+                        <div class="goal-name">Protect Marine Biodiversity</div>
+                        <div class="goal-progress-container">
+                            <div class="goal-progress-bar" style="width: 80%"></div>
+                        </div>
+                        <span>40 / 50 </span>
+                    </div>
+                </li>
+                <li class="goal-item">
+                    
+                    <div class="goal-details">
+                        <div class="goal-name">Ocean Cleanup Events</div>
+                        <div class="goal-progress-container">
+                            <div class="goal-progress-bar" style="width: 45%"></div>
+                        </div>
+                        <span>9 / 20</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Volunteering Section -->
+        <section class="section">
+            <h2 class="section-title">Volunteering Activities</h2>
+            <div class="volunteering-list">
+                <div class="volunteering-item">
+                    <span class="volunteering-icon" aria-hidden="true">🧹</span>
+                    <span>Beach & Ocean Cleanup Drives</span>
+                </div>
+                <div class="volunteering-item">
+                    <span class="volunteering-icon" aria-hidden="true">💡</span>
+                    <span>Community Education on Ocean Sustainability</span>
+                </div>
+                <div class="volunteering-item">
+                    <span class="volunteering-icon" aria-hidden="true">📚</span>
+                    <span>Marine Wildlife Monitoring & Protection </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Section -->
+        <section class="section">
+            <h2 class="section-title">UN Goals I Support</h2>
+            <div class="interests-container">
+                <div class="interest-item">
+                    <span class="interest-icon" aria-hidden="true">🌍</span>
+                    <span class="interest-name">Climate Action</span>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon" aria-hidden="true">🌊</span>
+                    <span class="interest-name">Clean Water</span>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon" aria-hidden="true">🌿</span>
+                    <span class="interest-name">Life on Land</span>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon" aria-hidden="true">🏙️</span>
+                    <span class="interest-name">Sustainable Cities</span>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon" aria-hidden="true">♻️</span>
+                    <span class="interest-name">Responsible Consumption</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section class="availability-calendar">
+            <h2>Availability Calendar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>08:00 - 10:00</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 - 12:00</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 - 14:00</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 16:00</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                    </tr>
+                    <tr>
+                        <td>16:00 -  18:00</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                        <td>-</td>
+                        <td>✔️</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Contact Form -->
+        <section class="section">
+            <h2 class="section-title">Contact Me</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>This page was created by Student 4 | <a href="pageEditor_ST4.html">Page Editor</a> | <a href="https://sdgs.un.org/goals">UN Sustainable Goals</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize draggable sliders
+        document.querySelectorAll('.slider-container').forEach(container => {
+            const handle = container.querySelector('.slider-handle');
+            const fill = container.querySelector('.slider-fill');
+            const percentageDisplay = container.parentElement.querySelector('.skill-name span:last-child');
+            
+            // Make the slider handle draggable
+            handle.addEventListener('mousedown', function(e) {
+                e.preventDefault();
+                
+                // Calculate slider dimensions
+                const containerWidth = container.offsetWidth;
+                
+                // Function to update slider position
+                function updateSliderPosition(clientX) {
+                    const containerRect = container.getBoundingClientRect();
+                    let newPosition = clientX - containerRect.left;
+                    
+                    // Constrain within slider bounds
+                    if (newPosition < 0) newPosition = 0;
+                    if (newPosition > containerRect.width) newPosition = containerRect.width;
+                    
+                    // Calculate percentage
+                    const percentage = Math.round((newPosition / containerRect.width) * 100);
+                    
+                    // Update handle and fill
+                    handle.style.left = percentage + '%';
+                    fill.style.width = percentage + '%';
+                    
+                    // Update percentage display
+                    percentageDisplay.textContent = percentage + '%';
+                }
+                
+                // Mouse move handler
+                function onMouseMove(e) {
+                    updateSliderPosition(e.clientX);
+                }
+                
+                // Mouse up handler
+                function onMouseUp() {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                }
+                
+                // Add event listeners
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+            
+            // Click on the slider container to jump to position
+            container.addEventListener('click', function(e) {
+                // Ignore clicks on the handle
+                if (e.target === handle) return;
+                
+                const containerRect = container.getBoundingClientRect();
+                let newPosition = e.clientX - containerRect.left;
+                
+                // Constrain within slider bounds
+                if (newPosition < 0) newPosition = 0;
+                if (newPosition > containerRect.width) newPosition = containerRect.width;
+                
+                // Calculate percentage
+                const percentage = Math.round((newPosition / containerRect.width) * 100);
+                
+                // Update handle and fill
+                handle.style.left = percentage + '%';
+                fill.style.width = percentage + '%';
+                
+                // Update percentage display
+                percentageDisplay.textContent = percentage + '%';
+            });
+        });
+
+        // Form submission handler
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Message sent successfully!');
+            form.reset();
+        });
+    </script>
+</body>
+</html>
