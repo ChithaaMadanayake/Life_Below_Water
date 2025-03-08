@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Editor - Chithaa Madanayake</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -13,28 +15,30 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: #DFE4E7;
-            background-color: #0B0845;
+            color: #F8FAFC;
+            background: linear-gradient(135deg, #0B0845 30%, #061A40);
             overflow-x: hidden;
-            line-height: 1.6;
-            padding-top: 70px;
             text-align: center;
+            padding-top: 70px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Navbar */
+        /* Navbar with Glassmorphism */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.3);
             padding: 15px;
             z-index: 1000;
-            width: 100%;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: 0.3s ease-in-out;
         }
 
         .logo {
@@ -45,26 +49,45 @@
             letter-spacing: 2px;
         }
 
+        /* Main content */
         .main-container {
-            padding: 80px 20px;
+            padding: 100px 20px;
+            animation: fadeIn 1.5s ease-in-out;
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .text-content {
+            max-width: 50%;
         }
 
         h1 {
             font-size: 42px;
             margin-bottom: 20px;
             text-transform: uppercase;
+            color: #E2E8F0;
         }
 
         .section {
-            background: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(8px);
             padding: 20px;
-            margin: 20px auto;
-            border-radius: 10px;
+            margin: 20px 0;
+            border-radius: 15px;
             max-width: 800px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
         }
 
         h2 {
-            color: #4DB8FF;
+            color: #A3E635;
             font-size: 28px;
             margin-bottom: 10px;
         }
@@ -79,15 +102,50 @@
             padding: 10px 0;
         }
 
-        .footer {
-            background-color: #1E1E1E;
-            padding: 15px;
-            margin-top: 30px;
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background: #FFB703;
+            color: #222;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 183, 3, 0.3);
         }
 
-        .footer p {
-            margin: 0;
+        .profile-image {
+            max-width: 40%;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 20px;
+            margin-top: 30px;
             font-size: 14px;
+            color: #C9D1D9;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -100,34 +158,39 @@
 
     <!-- Main Content -->
     <div class="main-container">
-        <h1>Page Editor</h1>
+        <div class="text-content">
+            <h1>Page Editor</h1>
 
-        <div class="section">
-            <h2>Name and Role</h2>
-            <p><strong>Name:</strong> Chithaa Madanayake</p>
-            <p><strong>Role:</strong> Student 2</p>
+            <div class="section">
+                <h2>Name and Role</h2>
+                <p><strong>Name:</strong> Chithaa Madanayake</p>
+                <p><strong>Role:</strong> Student 2</p>
+            </div>
+
+            <div class="section">
+                <h2>Completed Tasks</h2>
+                <ul>
+                    <li>✅ <strong>Homepage Design:</strong> Created an engaging homepage with a video background.</li>
+                    <li>✅ <strong>Navigation Bar:</strong> Designed a responsive and clean navigation bar.</li>
+                    <li>✅ <strong>Footer:</strong> Developed a visually appealing footer with useful links.</li>
+                    <li>✅ <strong>Content Page:</strong> Created an informative content page with well-structured data.</li>
+                    <li>✅ <strong>Table Page:</strong> Designed a structured table page for better organization.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>My Strategy</h2>
+                <p>Focused on designing a clean, interactive, and user-friendly interface with a mix of visual elements.</p>
+            </div>
+
+            <div class="section">
+                <h2>My Quality</h2>
+                <p>Ensured smooth navigation, a modern UI, and an engaging layout that enhances user experience.</p>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Completed Tasks</h2>
-            <ul>
-                <li>✅ <strong>Homepage Design:</strong> Created an engaging homepage with a video background.</li>
-                <li>✅ <strong>Navigation Bar:</strong> Designed a responsive and clean navigation bar.</li>
-                <li>✅ <strong>Footer:</strong> Developed a visually appealing footer with useful links.</li>
-                <li>✅ <strong>Content Page:</strong> Created an informative content page with well-structured data.</li>
-                <li>✅ <strong>Table Page:</strong> Designed a structured table page for better organization.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>My Strategy</h2>
-            <p>Focused on designing a clean, interactive, and user-friendly interface with a mix of visual elements.</p>
-        </div>
-
-        <div class="section">
-            <h2>My Quality</h2>
-            <p>Ensured smooth navigation, a modern UI, and an engaging layout that enhances user experience.</p>
-        </div>
+        <!-- Add your photo on the right -->
+        <img src="ST_02.jpeg" alt="Chithaa Madanayake" class="profile-image">
     </div>
 
     <!-- Footer -->
