@@ -170,6 +170,8 @@ nav a:hover {
     border-radius: 10px;
     margin-bottom: 15px;
 }
+<<<<<<< HEAD
+=======
 .back-to-top {
     position: fixed;
     bottom: 20px;
@@ -189,6 +191,7 @@ nav a:hover {
     background-color: #33A1CC;
     transform: scale(1.1);
 }
+>>>>>>> b412e2c46cfbc59ef2efc86edd2bda25cfb51154
 
 /* Footer */
 footer {
