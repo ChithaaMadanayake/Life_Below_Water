@@ -9,15 +9,7 @@ body {
 
 /* Navigation Menu */
 
-nav {
-    background-color: #0077b6;
-    padding: 10px;
-    position: fixed;
-    top: 80px; /* Adjust this value to push the nav bar lower */
-    width: 100%;
-    text-align: center;
-    z-index: 1000; /* Ensure the nav bar is above other elements */
-}
+
 
 
 
@@ -83,7 +75,7 @@ footer {
     text-align: center;
     margin-top: 40px;
     font-size: 1em;
-    color: #333;
+    color: #faf9f9;
 }
 
 footer a {

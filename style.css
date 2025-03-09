@@ -22,7 +22,7 @@ h1 {
 
 /* Paragraph styling */
 p {
-    margin-top: 20px; /* Add space before the paragraph, if needed */
+    margin-top: 20px; /* Add space before the paragraph */
     font-size: 1em;
     color: #3b3b3b;
     text-align: center; /* Center the text horizontally */
@@ -122,7 +122,7 @@ footer {
     width: 100%;
     background-color: #fff;
     padding: 10px 0;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow above the footer */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /*Adds a shadow above the footer */
     z-index: 1000;        /* Ensure it's above other content */
 }
 
