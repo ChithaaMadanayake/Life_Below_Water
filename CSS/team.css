@@ -118,6 +118,7 @@ p {
     outline: 3px solid #1e90ff; /* Highlight border for accessibility */
 }
 
+<<<<<<< HEAD:style.css
 /* Footer styles */
 footer {
     text-align: center;
@@ -141,6 +142,8 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+=======
+>>>>>>> fd224a893cd1bdb2ccc59a2ca02dfea095aaf067:CSS/style.css
 
 /* Responsiveness for mobile */
 @media (max-width: 768px) {

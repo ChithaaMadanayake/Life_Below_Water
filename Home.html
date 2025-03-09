@@ -7,6 +7,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/Main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        footer {
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            padding-top: 10px;
+            padding-bottom: 0px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-logo img {
+            width: 100px;
+            height: auto;
+        }
+        .footer-editors ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+            margin-left: 400px;
+        }
+        .footer-editors a {
+            color: #A8DADC;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        .footer-editors a:hover {
+            color: #DFE4E7;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -22,7 +63,6 @@
             <li><a href="feedback.html">Feedback</a></li>
         </ul>
     </nav>
-
     <section class="video-background">
         <video autoplay loop muted>
             <source src="images/Main_BG.mp4" type="video/mp4">
@@ -48,18 +88,18 @@
             <div class="tile">
                 <img src="images/Oc_Po.jpg" alt="Marine Conservation">
                 <h3><i class="fas fa-leaf"></i> Our Conservation Projects</h3>
-                <p>Protecting our oceans' wildlife.</p><br>
+                <p>Safeguarding marine life for future generations.</p><br>
                 <a href="content_ST2.html" class="explore-btn">Explore</a>
             </div>
             <div class="tile">
                 <img src="images/marine_Con.jpg" alt="Ocean Pollution">
-                <h3><i class="fas fa-water"></i> Ocean Pollution</h3>
-                <p>How pollution affects our oceans and marine life.</p><br>
-                <a href="content_ST2.html" class="explore-btn">Explore</a>
+                <h3><i class="fas fa-water"></i> Beauty Of Ocean Life</h3>
+                <p>Unveiling marine beauty and biodiversity.</p><br>
+                <a href="content_ST3.html" class="explore-btn">Explore</a>
             </div>
             <div class="tile">
                 <img src="images/Mari_Eco.jpg" alt="Marine Ecosystems">
-                <h3><i class="fas fa-paw"></i> Preserving Marine Ecosystems</h3>
+                <h3><i class="fas fa-paw"></i> Marine Ecosystems</h3>
                 <p>The importance of maintaining healthy marine ecosystems.</p><br>
                 <a href="content_ST4.html" class="explore-btn">Explore</a>
             </div>
@@ -68,6 +108,20 @@
     <script src="script.js"></script>
 </body>
 <footer>
-    <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="images/AquaBytes-removebg-preview.png" alt="AquaBytes Team Logo">
+        </div>
+        <div class="footer-text">&copy; 2025 Life Below Water - All Rights Reserved</div>
+        <div class="footer-editors">
+            <ul>
+                <li><strong>Editors:</strong></li>
+                <li><a href="pageEditor_ST1.html">Yenulka Desilva</a></li>
+                <li><a href="pageEditor_ST02.html">Chithaa Madanayake</a></li>
+                <li><a href="pageEditor_ST3.html">Buddhi Jothirathne</a></li>
+                <li><a href="student4.html">Hashma Humam</a></li>
+            </ul>
+        </div>
+    </div>
 </footer>
 </html>
