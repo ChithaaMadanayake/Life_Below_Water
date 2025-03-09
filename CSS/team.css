@@ -5,39 +5,48 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrap all content except footer */
+.page-wrapper {
+    flex: 1;
     padding: 20px;
-    padding-bottom: 100px; /* Space for the fixed footer */
+    padding-bottom: 100px; /* Prevent content from hiding under fixed footer */
 }
 
 /* Main heading (h1) styling */
 h1 {
     font-size: 28px;
     color: #023e8a;
-    margin-top: 50px; /* Add space before the main heading */
-    margin-bottom: 20px; /* Add space after the main heading (space between h1 and paragraph) */
-    text-align: center;  /* Center the text horizontally */
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 /* Paragraph styling */
 p {
-    margin-top: 20px; /* Add space before the paragraph */
+    margin-top: 20px;
     font-size: 1em;
     color: #3b3b3b;
-    text-align: center; /* Center the text horizontally */
+    text-align: center;
 }
-
 
 /* Container for the team members */
 .team_container {
-    margin-top: 40px; /* Add more space after h1 or team content */
+    margin-top: 15px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
-    margin-top: 15px;
 }
 
 /* Individual team member styling */
@@ -49,10 +58,10 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     outline: none;
-    position: relative; /* Required to keep other elements in place */
+    position: relative;
 }
 
-/* Thumbnail image styling and hover/focus effect */
+/* Thumbnail image styling */
 .thumbnail {
     width: 100%;
     height: 260px;
@@ -67,71 +76,66 @@ p {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Hover and Focus effect on thumbnail - only applies to the hovered image */
+/* Hover and Focus effect on thumbnail */
 .team_member:hover .thumbnail img {
     opacity: 0.8;
-    transform: scale(1.1); /* Only scale the image inside the hovered team member */
-    position: absolute; /* Prevent the image from shifting other images */
+    transform: scale(1.1);
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Ensure the hovered image is above the others */
+    z-index: 1;
 }
-
 
 /* Team details section */
 .team_details {
-    padding: 2px; /* Reduced padding */
+    padding: 2px;
     background-color: #fff;
     text-align: center;
-    opacity: 0; /* Initially hidden */
-    max-height: 0; /* Initially hidden */
+    opacity: 0;
+    max-height: 0;
     overflow: hidden;
     transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
-/* Expand team details on hover */
 .team_member:hover .team_details,
 .team_member:focus .team_details {
-    opacity: 1; /* Make visible on hover */
-    max-height: 200px; /* Increase max-height to allow visibility */
+    opacity: 1;
+    max-height: 200px;
 }
 
-/* Header and description text styles */
 .team_details h3,
 .team_details h4 {
     font-size: 1em;
     color: #252525;
-    margin-bottom: 1px; /* Reduced margin between header and content */
+    margin-bottom: 1px;
 }
 
 .team_details p {
     font-size: 1em;
     color: #3b3b3b;
-    margin-top: 5px; /* Reduced margin between paragraph and header */
+    margin-top: 5px;
 }
-
 
 /* Hover and Focus effect on team member container */
 .team_member:hover,
 .team_member:focus {
     transform: translateY(-10px);
-    outline: 3px solid #1e90ff; /* Highlight border for accessibility */
+    outline: 3px solid #1e90ff;
 }
 
-<<<<<<< HEAD:style.css
 /* Footer styles */
 footer {
     text-align: center;
     font-size: 1em;
-    color: #d0c9c9;
-    position: fixed;      /* Fixes the footer at the bottom of the screen */
+    color: rgb(254, 248, 248);
+    position: fixed;
     left: 0;
-    bottom: 0;            /* Positions it at the bottom */
+    bottom: 0;
     width: 100%;
     background-color: #fff;
     padding: 10px 0;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Adds a shadow above the footer */
-    z-index: 1000;        /* Ensure it's above other content */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 footer a {
@@ -142,8 +146,11 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-=======
->>>>>>> fd224a893cd1bdb2ccc59a2ca02dfea095aaf067:CSS/style.css
+
+.editor-label {
+    color: white;
+}
+
 
 /* Responsiveness for mobile */
 @media (max-width: 768px) {
