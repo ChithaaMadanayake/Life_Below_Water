@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor Student - Yenulka Desilva</title>
+    <link rel="stylesheet" href="CSS/Main.css">
+    <link rel="stylesheet" href="css/pageEditor_validator.css"> <!-- External CSS link -->
+    <style>
+        .stud h2 {
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header id="top">
+        <nav>
+            <div class="logo">🌊 Life Below Water</div>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="table.html">Table</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="Sitemap.html">Sitemap</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+<section class="video-background">
+    <video autoplay loop muted>
+        <source src="images/Main_BG.mp4" type="video/mp4">
+    </video>
+</section>
+    <section class="stud">
+        <h2>Yenulka Desilva - Student 1</h2>
+    </section>
+
+    <div class="container">
+        <!-- Main content area -->
+        <main>
+
+            <!-- Update those first three sections for the pages you were responsible to implement -->
+
+            <section>
+                <h2 id="splash">Splash Page</h2>
+                <h3>Technical Description</h3>
+                <h4><strong>Html Structure</strong></h4>
+                <h4>DOCTYPE and HTML Tag:</h4>
+                <ul>
+                    <li><code>&lt;!DOCTYPE html&gt;</code> declares the document type and version of HTML (HTML5).</li>
+                    <li><code>&lt;html lang="en"&gt;</code> specifies the language of the document (English), which is important for accessibility and SEO.</li>
+                </ul>
+            
+                <h4>Meta Tags:</h4>
+                <ul>
+                    <li><code>&lt;meta charset="UTF-8"&gt;</code> ensures the document uses UTF-8 character encoding, which supports a wide range of characters.</li>
+                    <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> makes the page responsive by setting the viewport width to the device's width and initial zoom level to 1.</li>
+                    <li><code>&lt;meta http-equiv="refresh" content="4; url=home.html"&gt;</code> automatically redirects the user to <code>home.html</code> after 4 seconds, which is useful for splash screens.</li>
+                </ul>
+            
+                <h4>Title Tag:</h4>
+                <ul>
+                    <li><code>&lt;title&gt;Splash Screen&lt;/title&gt;</code> sets the title of the webpage, which appears in the browser tab and is important for SEO.</li>
+                </ul>
+            
+                <h4>Body Content:</h4>
+                <ul>
+                    <li>The <code>&lt;body&gt;</code> contains the main content of the page, including the splash screen elements.</li>
+                    <li><code>&lt;div class="splash-container"&gt;</code> is a container for the splash screen content, using flexbox to center the content both horizontally and vertically.</li>
+                    <li><code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;h2&gt;</code> tags are used for headings and text, with specific styling applied to create a visually appealing splash screen.</li>
+                    <li><code>&lt;div class="fish1"&gt;</code> and <code>&lt;div class="fish2"&gt;</code> contain animated fish images that move across the screen, adding a dynamic element to the design.</li>
+                    <li><code>&lt;div class="members"&gt;</code> contains a list of student names, styled to appear as inline blocks with a light background and shadow effect.</li>
+                </ul>
+            
+                <h4><strong>CSS Styling</strong></h4>
+                <h4>Body Styling:</h4>
+                <ul>
+                    <li><code>background: url("life_underwater.jpg");</code> sets a background image that covers the entire screen without repeating.</li>
+                    <li><code>display: flex; justify-content: center; align-items: center;</code> uses flexbox to center the content both horizontally and vertically.</li>
+                    <li><code>animation: fadeOut 1s ease-in-out 6s forwards;</code> applies a fade-out animation to the body after 6 seconds, creating a smooth transition before the page redirects.</li>
+                </ul>
+            
+                <h4>Splash Container Styling:</h4>
+                <ul>
+                    <li><code>text-align: center;</code> centers the text inside the container.</li>
+                    <li><code>animation: fadeOut 1s ease-in-out 3s forwards;</code> applies a fade-out animation to the container after 3 seconds.</li>
+                </ul>
+            
+                <h4>Text Styling:</h4>
+                <ul>
+                    <li><code>font-family</code>, <code>font-size</code>, <code>color</code>, and <code>text-shadow</code> are used to style the headings and paragraphs, making them visually appealing and readable.</li>
+                    <li><code>opacity: 0;</code> initially hides the text, and <code>animation: fadeIn</code> gradually makes it visible.</li>
+                </ul>
+            
+                <h4>Fish Animation:</h4>
+                <ul>
+                    <li><code>.fish1 img</code> and <code>.fish2 img</code> are styled with <code>position: absolute;</code> and <code>animation</code> properties to create the effect of fish swimming across the screen.</li>
+                    <li><code>@keyframes moveRight</code> and <code>@keyframes moveLeft</code> define the animations for the fish moving from left to right and right to left, respectively.</li>
+                </ul>
+            
+                <h4>Members List Styling:</h4>
+                <ul>
+                    <li><code>.members ul</code> removes default list styling and centers the list items.</li>
+                    <li><code>.members li</code> styles each list item with a light background, rounded corners, and a shadow effect, making them stand out.</li>
+                </ul>
+            
+                <h3>Accessibility</h3>
+                <h4>Semantic HTML:</h4>
+                <ul>
+                    <li>The use of semantic HTML tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;ul&gt;</code> helps screen readers understand the structure and content of the page, improving accessibility for visually impaired users.</li>
+                </ul>
+            
+                <h4>Alt Text for Images:</h4>
+                <ul>
+                    <li>The <code>alt</code> attribute in the <code>&lt;img&gt;</code> tags (<code>alt="Animated fish swimming across the screen"</code>) provides alternative text for the fish images. This is crucial for screen readers to describe the images to users who cannot see them.</li>
+                </ul>
+            
+                <h4>Color Contrast:</h4>
+                <ul>
+                    <li>The text color (<code>color: white;</code> for headings and <code>color: black;</code> for paragraphs) is chosen to ensure good contrast against the background, making the text readable for users with visual impairments.</li>
+                </ul>
+            
+                <h4>Keyboard Navigation:</h4>
+                <ul>
+                    <li>The page is designed to be navigable via keyboard, as there are no interactive elements that would require mouse-specific actions. The automatic redirect after 4 seconds ensures that users who rely on keyboard navigation are not stuck on the splash screen indefinitely.</li>
+                </ul>
+            
+                <h4>Responsive Design:</h4>
+                <ul>
+                    <li>The use of the viewport meta tag and flexbox ensures that the page is responsive and accessible on various devices, including mobile phones and tablets.</li>
+                </ul>
+                    
+                    <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                        <p><a href="validation_ST1.html#splashVal">Link to validation page</a></p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                    <h3>Link to the page</h3>
+                        <p><a href="splash.html">Link to the Splash Screen.</a></p>
+            </section>
+
+            <section>
+                <h2 id="volunteer">Volunteer Page</h2>
+                <h3>Technical Description</h3>
+                <p>Explain the HTML and CSS techniques used to implement this page. Justify the logic and purpose of the key tags and styling choices focusing on functionality and design without copying large code sections. Explain the purpose of key HTML tags and CSS properties. Specify key HTML tags and CSS properties used to create structure and styling.</p>
+                <h4><strong>Semantic HTML Tags</strong>:</h4>
+                        <ul>
+                            <li><code>&lt;section&gt;</code>: Used to divide the page into logical sections like the hero section, main content, and reviews section.</li>
+                            <li><code>&lt;header&gt;</code>: Contains the hero section with the main heading and introductory content.</li>
+                            <li><code>&lt;main&gt;</code>: Wraps the main content of the page, including the volunteer program cards.</li>
+                            <li><code>&lt;footer&gt;</code>: Contains the footer content with links and copyright information.</li>
+                        </ul>
+                <h4><strong>Card Layout</strong>:</h4>
+                        <ul>
+                            <li><code>&lt;div class="card-container"&gt;</code>: A flex container that holds individual cards. Each card represents a volunteer opportunity.</li>
+                            <li><code>&lt;div class="card"&gt;</code>: Each card contains an image, title, description, and buttons. The card layout is responsive, with cards wrapping to the next line on smaller screens.</li>
+                        </ul>
+                    
+                <h4><strong>Reviews Section</strong>:</h4>
+                        <ul>
+                            <li><code>&lt;div class="review-card"&gt;</code>: Each review card contains a rating, review text, and reviewer information. The "Read More" functionality is implemented using a checkbox and CSS.</li>
+                        </ul>
+        
+                <h4><strong>Feedback Form</strong>:</h4>
+                        <ul>
+                            <li><code>&lt;form action="#" method="post"&gt;</code>: A simple form for users to submit feedback. It includes emoji buttons for quick sentiment selection and a textarea for detailed feedback.</li>
+                        </ul>
+                
+                <h3>Accessibility</h3>
+                <p>Explain how you used to addressed accessibility in this particular page you implemented.</p>
+                
+                <h4><strong>Semantic HTML</strong>:</h4>
+                        <ul>
+                            <li>Used semantic tags like <code>&lt;section&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;main&gt;</code> to improve screen reader navigation.</li>
+                        </ul>
+                    
+                <h4><strong>Contrast and Readability</strong>:</h4>
+                        <ul>
+                            <li>Ensured high contrast between text and background colors, such as white text on a dark blue background in the footer.</li>
+                        </ul>
+                    
+                <h4><strong>Keyboard Navigation</strong>:</h4>
+                        <ul>
+                            <li>Used <code>tabindex</code> on interactive elements like buttons and links to ensure keyboard accessibility.</li>
+                        </ul>
+                    
+                <h4><strong>Form Accessibility</strong>:</h4>
+                        <ul>
+                            <li>Included labels for form inputs and used emoji buttons with clear context for quick selection.</li>
+                        </ul>
+                    
+                <h4><strong>Responsive Design</strong>:</h4>
+                        <ul>
+                            <li>Ensured the page is responsive and usable on various devices, including those used by people with disabilities.</li>
+                        </ul>
+
+                        <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                        <p><a href="validation_ST1.html#splashVal">Link to validation page</a></p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                        <h3>Link to the Volunteer Page</h3>
+                        <p><a href="volunteer.html">Link to the Volunteer Page.</a></p>
+
+                
+            </section>
+
+            <section>
+                <h2 id="content">Content Page</h2>
+                <h3>Technical Description</h3>
+                
+                <h4><strong>Semantic HTML Tags</strong>:</h4>
+                        <ul>
+                            <li><code>&lt;section&gt;</code>: Used to divide the page into logical sections like the introduction, blog posts, and image gallery.</li>
+                            <li><code>&lt;header&gt;</code>: Contains the sidebar navigation and introductory content.</li>
+                            <li><code>&lt;main&gt;</code>: Wraps the main content of the page, including the blog posts and image gallery.</li>
+                            <li><code>&lt;footer&gt;</code>: Contains the "Go to Top" button for easy navigation.</li>
+                        </ul>
+                <h4><strong>Sidebar Navigation</strong>:</h4>
+                        <ul>
+                            <li><code>&lt;div class="top-destination"&gt;</code>: A fixed sidebar on the left side of the page, providing quick navigation links to different sections of the page.</li>
+                            <li><code>&lt;div class="top3"&gt;</code>: Each navigation item in the sidebar, containing an icon and a link to a specific section.</li>
+                        </ul>
+                    
+                <h4><strong>Blog Posts</strong>:</h4>
+                        <ul>
+                            <li><code>&lt;div class="blog-container"&gt;</code>: A flex container that holds individual blog posts.</li>
+                            <li><code>&lt;div class="blog-box"&gt;</code>: Each blog post contains an image, title, date, and description. The posts are styled to be visually appealing and responsive.</li>
+                        </ul>
+                    
+                <h4><strong>Image Gallery</strong>:</h4>
+                        <ul>
+                            <li><code>&lt;div class="image-container"&gt;</code>: A flex container that holds sets of images. Each image box is styled with rounded corners, shadows, and hover effects for interactivity.</li>
+                            <li><code>&lt;div class="image-box"&gt;</code>: Each image box contains a background image and a caption, styled to be visually appealing and responsive.</li>
+                        </ul>
+                    
+                <h4><strong>CSS Styling</strong>:</h4>
+                        <ul>
+                            <li><code>flexbox</code>: Used extensively for layout, ensuring the page is responsive and adapts to different screen sizes.</li>
+                            <li><code>box-shadow</code>: Adds subtle shadows to cards and images, giving them a lifted appearance.</li>
+                            <li><code>transition</code>: Used for smooth hover effects on cards, images, and links, enhancing user interaction.</li>
+                            <li><code>background: linear-gradient</code>: Creates a gradient background for the page, adding visual depth.</li>
+                        </ul>
+    
+                <h3>Accessibility</h3>
+                
+                <h4><strong>Semantic HTML</strong>:</h4>
+                        <ul>
+                            <li>Used semantic tags like <code>&lt;section&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;main&gt;</code> to improve screen reader navigation.</li>
+                        </ul>
+                
+                <h4><strong>Contrast and Readability</strong>:</h4>
+                        <ul>
+                            <li>Ensured high contrast between text and background colors, such as white text on a dark gradient background.</li>
+                        </ul>
+                    
+                <h4><strong>Responsive Design</strong>:</h4>
+                        <ul>
+                            <li>Ensured the page is responsive and usable on various devices, including those used by people with disabilities.</li>
+                        </ul>
+                    
+                <h4><strong>Skip Navigation</strong>:</h4>
+                        <ul>
+                            <li>Included a "Go to Top" button (<code>&lt;a href="#top"&gt;</code>) to allow users to quickly navigate back to the top of the page.</li>
+                        </ul>
+
+                        <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                        <p><a href="validation_ST1.html#splashVal">Link to validation page</a></p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                        <h3>Link to the Content page</h3>
+                        <p><a href="content_ST1.html">Link to the Content Page.</a></p>
+            </section>
+
+            <section>
+                <h2 id="challenge"> Challenges and Lessons Learned</h2>
+                <h3>Hover Effects and Transitions: </h3> 
+                <h4>Challenges: </h4>
+                <p>Implementing smooth hover effects on cards and buttons without causing performance issues.</p>
+                <h4>Solutions: </h4>
+                <p>Used CSS transitions (e.g., transition: transform 0.3s ease) to create smooth animations for card hover effects.</p>
+                <h4>Lessons Learned: </h4>
+                <p>Simple CSS transitions can improve user interaction without affecting the performance.</p>
+
+                <h3>Dropdown and Popup Functionality:</h3> 
+                <h4>Challenges: </h4>
+                <p>Implementing the sorting dropdown on the Volunteer Page and the reviews popup without JavaScript.</p>
+                <h4>Solutions: </h4>
+                <p>Used CSS-only techniques (:target for the popup) to create interactive elements.</p>
+                <h4>Lessons Learned: </h4>
+                <p> CSS can handle many interactive features without needing JavaScript, but it has its own limitations.</p>
+
+                <h3>Read More Button (Volunteer Page):</h3> 
+                <h4>Challenges: </h4>
+                <p> Implementing the "Read More" functionality for reviews without JavaScript.</p>
+                <h4>Solutions: </h4>
+                <p> Used a CSS checkbox hack without using JavaScript.</p>
+                <h4>Lessons Learned: </h4>
+                <p>Creative use of CSS can achieve dynamic functionality, but it’s not always the most perfect solution.</p>
+            </section>
+
+            <section>
+                <h2 id="compliance">Compliance</h2>
+                <p>The pages I made (Splash Screen, Content Page, and Volunteer Page) follow some of the Janet's rules for websites.</p>
+                <h3>Accessibility: </h3>
+                <h4>Compliance</h4>
+                <p>Used semantic HTML tags (e.g.,<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;section&gt;</code> ) and ensured proper contrast ratios for text and backgrounds. Added alt attributes to images for screen readers.</p>
+                <h4>Reason: </h4>
+                <p>Ensures the pages are accessible to users with disabilities.</p>
+                    
+                <h3>Responsive Design:</h3>
+                <h4>Compliance: </h4>
+                <p>Implemented CSS Flexbox to ensure the pages are responsive and work well on all devices (desktop, tablet, mobile).</p>
+                <h4>Reason: </h4> 
+                <p>Meets Janet's requirement for device compatibility and consistent user experience across platforms.</p>
+                    
+                <h3>Performance Optimization: </h3>
+                <h4>Compliance: </h4>
+                <p>Used images and CSS transitions instead of heavy JavaScript for animations to ensure fast loading times.</p>
+                <h4>Reason: </h4>
+                <p>The pages are designed to use resources efficiently and load quickly, which matches Janet's requirements on fast and efficient websites.</p>
+            </section>
+
+            <section>
+                <h2 id="ref">References</h2>
+                <p>Links to resources used: </p>
+                    <ul class="ref">
+                        <li>W3Schools (n.d.)<i>W3Schools.</i> Available at: <a href="https://www.w3schools.com/">https://www.w3schools.com/</a> (Last accessed: 8 Mar 2025).</li>  
+                        <li>GeeksforGeeks (n.d.)<i>GeeksforGeeks.</i> Available at: <a href="https://www.geeksforgeeks.org/">https://www.geeksforgeeks.org/</a> (Last accessed: 8 Mar 2025).</li>  
+                        <li>Font Awesome (2024) <i>Font Awesome.</i> Available at: <a href="https://fontawesome.com/">https://fontawesome.com/</a> (Last accessed: 9 Mar 2025).</li>
+                        <li>MDN Web Docs (n.d.) <i>transform-function: translate()</i>. Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate</a> (Accessed: 8 Mar 2025).</li>
+                    </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            <h3>Core pages developed:</h3>
+
+        <!-- Customize this to the role you undertook. Keep only the list items you were responsible to develop, delete the rest -->
+            <ul class="top-level-ul">
+                <!-- Keep only the list items you were responsible to develop, delete the rest and update the links to the corresponding markers -->
+                <li>Student 1</li>
+                    <ul> 
+                        <li><a href="#splash">Splash page</a></li>
+                        <li><a href="#volunteer">Volunteer page</a></li>
+                        <li><a href="#content">Content page</a></li>
+                    </ul>
+                <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+    </div>
+</body>
+<footer>
+    <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
+</footer>
+</html>

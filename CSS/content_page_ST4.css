@@ -86,7 +86,7 @@ a.active {
 .contents-para p{
     text-align: justify;
     margin:40px 60px 40px 60px;
-    color: #777777;
+    color: #00031d;
 }
 .para-ol{
     margin:40px 60px 40px 60px;
@@ -108,9 +108,9 @@ a.active {
  
 .unordered-con li a{
   text-decoration: none;
-  color: #147431;
+  color: #1b4227;
 }
 .unordered-con li a:hover{
   text-decoration: none;
-  color: #2dc653;
+  color: #000000;
 }

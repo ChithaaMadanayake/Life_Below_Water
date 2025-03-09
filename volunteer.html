@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Declares the document type and language -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Ensures responsive design -->
+     <!-- Links to external Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Title of the webpage -->
+    <title>Volunteer Opportunities</title>
+    <!-- Internal CSS styling -->
+     <link rel="stylesheet" href="CSS/Main.css">
+    <style>
+        /*set default margin, padding, and box-sizing for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;/* Sets default font */
+        }
+         /* Body styling */
+        body {
+            background:rgb(3, 75, 109);/*Set background color*/
+            color: white;/*Set color to white*/
+            line-height: 1.6;/*Set line height to improve readbility*/
+        }
+        
+        /* Styling for the sorting dropdown container */
+        .sort-container {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Label styling for the sorting dropdown */
+        .sort-container label {
+            color: black;
+            font-size: 30px;
+            text-align: center;
+        }
+        
+         /* Hero section styling with background image and centered content */
+        .hero-section {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+         /* Hero content heading styling */
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);/* Text shadow for visibility */
+        }
+         /* Hero content paragraph styling */
+        .hero-content p {
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);/* Text shadow for visibility */
+        }
+          /* Main content section styling */
+        .main-content {
+            padding: 20px; /* Padding around the content */
+            max-width: 1200px;/* Maximum width of the content */
+            margin: 0 auto;/* Centers the content horizontally */
+        }
+        /* Section title styling */
+        .section-title {
+            font-size: 36px;/* Large font size */
+            text-align: center;/* Centers the text */
+            margin-bottom: 40px; /* Space below the title */
+            color:whitesmoke;/* Light gray text color */
+        }
+        /* Card container styling with flex layout */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;/* Allows cards to wrap to the next line */
+            gap: 20px;/* Space between cards */
+            justify-content: center;/* Centers the cards horizontally */
+        }
+        /* Individual card styling */
+        .card {
+            background: white; /* White background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            width: calc(33.333% - 20px); /* Sets card width */
+            overflow: hidden; /* Hides overflow content */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+            cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+        .card:hover {
+            transform: translateY(-10px);/* Moves card up slightly */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);/* Increases shadow when hovering */
+        }
+        /* Card image styling */
+        .card img {
+            width: 100%; /* Full width of the card */
+            height: 200px; /* Fixed height */
+            object-fit: cover; /* Ensures the image covers the area */
+        }
+        .card-content {
+            padding: 20px; /* Padding inside the card */
+        }
+         /* Card heading styling */
+        .card h2 {
+            font-size: 22px; /* Medium font size */
+            margin-bottom: 10px; /* Space below the heading */
+            color: #094872; /* Dark blue text color */
+        }
+        /* Card paragraph styling */
+        .card p {
+            font-size: 14px; /* Small font size */
+            color: #555; /* Gray text color */
+            margin-bottom: 15px; /* Space below the paragraph */
+        }
+         /* Card list styling */
+         .card ul {
+            list-style-type: disc; /* Adds bullet points */
+            padding-left: 20px; /* Indents the list */
+            margin-bottom: 15px; /* Space below the list */
+            font-size: 14px; /* Small font size */
+            color: #555; /* Gray text color */
+        }
+       /* Button container styling */
+       .button-container {
+            display: flex;
+            justify-content: space-between; /* Spaces buttons evenly */
+            gap: 20px; /* Space between buttons */
+            margin-bottom: 20px; /* Space below the buttons */
+            padding: 20px; /* Padding inside the container */
+        }
+       /* Button styling */
+       .button-container a {
+            flex: 1; /* Makes buttons take equal space */
+            text-align: center; /* Centers the text */
+            padding: 10px; /* Padding inside the button */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Removes underline */
+            font-size: 14px; /* Small font size */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+        }
+
+        /* Button hover effect */
+        .button-container a:hover {
+            background-color:#0077b6; /* Blue background on hover */
+            font-size: 18px; /* Increases font size on hover */
+            color: #fff; /* White text color on hover */
+            border-radius: 5px; /* Rounded corners */
+        }
+        .select-selected {
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: large;
+        }
+
+        .select-selected:after {
+            position: absolute;
+            content: "";
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #fff transparent transparent transparent;
+        }
+        .read-more {
+            background: #ddd; /* Light gray background */
+            color: black;
+        }
+        .join-now {
+            background: #0492C2;
+            color: white;
+        }
+        .join-now:hover {
+            background: #0378a3;
+        }
+        .reviews-section {
+            background: white;
+            padding:10px;
+            margin-top: 40px;
+            
+        }
+        .reviews-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            
+            max-width: 1200px;
+            margin:80px;
+        }
+        .reviews-contianer {
+            padding: 30px; /* Padding inside the container */
+            background: white; /* White background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            width: 50%; /* Sets container width */
+            display: flex;
+            flex-direction: column; /* Stacks content vertically */
+            align-items: center; /* Centers content horizontally */
+            justify-content: center; /* Centers content vertically */
+            margin-top: 20px; /* Space above the container */
+            
+        }
+        /*Stylings for heaidngs in review-container*/
+        .reviews-contianer h1 {
+            font-size: 60px;
+            font-weight: bold;
+            color:black
+        }
+        .reviews-contianer h4{
+            font-size:40px;
+            font-weight:bold;
+            color:black
+        }
+        
+        /*Style review-cards*/
+        .review-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding:40px;
+            width:100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin:20px;
+            max-height:300px;
+        }
+        /*Style review card's paragraphs heaidngs*/
+        .review-card h3 {
+            font-size: 18px;
+            color: #094872;
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            font-size: 14px;
+            color: #555;
+        }
+        /* Reviews container "View Reviews" button styling */
+        .view-reviews {
+            display: inline-block;
+            padding:10px;/* Padding inside the button */
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px;/* Medium font size */
+            transition: background-color 0.3s ease, color 0.3s ease;/* Smooth hover effect */
+        }
+        .view-reviews:hover {
+            background-color: black;
+            color: white;
+        }
+        .footer {
+            background: #094872;/* Dark blue background */
+            color: white;/* White text color */
+            padding: 20px;/* Padding inside the footer */
+            text-align: center;/* Centers the text */
+            margin-top: 40px;/* Space above the footer */
+        }
+        .footer a {
+            color: #0492C2; /* Blue text color */
+            text-decoration: none; /* Removes underline */
+            transition: color 0.3s ease; /* Smooth hover effect */
+        }
+         /* Footer link hover effect */
+        .footer a:hover {
+            color: #0378a3;/* Darker blue on hover */
+        }
+        .pop-box {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            top: 10%; /* Position from the top */
+            left: 0; /* Position from the left */
+            width: 100%; /* Full width */
+            max-height: 80vh; /* Maximum height */
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+            z-index: 1000; /* Ensures it appears above other content */
+            overflow-y: auto; /* Allows scrolling */
+        }
+        .popbox-content {
+            display: flex;
+            flex-wrap: wrap; /* Allows content to wrap */
+            align-items: flex-start; /* Aligns content to the top */
+            background: white; /* White background */
+            padding: 20px; /* Padding inside the popup */
+            border-radius: 10px; /* Rounded corners */
+            width: 90%; /* Sets width */
+            max-width: 600px; /* Maximum width */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            overflow-y: auto; /* Allows scrolling */
+            max-height:80vh;
+        }
+        #reviews-popup:target {
+            display: flex;
+        }
+        /* Close button styling for the popup */
+        .close-popbox {
+            text-decoration: none; /* Removes underline */
+            font-size: 24px; /* Large font size */
+            font-weight: bold; /* Bold text */
+            color: red; /* Red text color */
+            position: absolute; /* Positions the button */
+            top: 10px; /* Position from the top */
+            right: 20px; /* Position from the right */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            background: white; /* White background */
+            width: 20px; /* Fixed width */
+            height: auto; /* Auto height */
+            justify-content: center; /* Centers content horizontally */
+            text-align: center; /* Centers text */
+        }
+        .feedback-container {
+            display: flex;
+            flex-direction: column; /* Stacks content vertically */
+            flex-wrap: wrap; /* Allows content to wrap */
+            justify-content: center; /* Centers content horizontally */
+            align-items: stretch; /* Stretches content to fill the container */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin: 90px; /* Margin around the container */
+            padding: 30px; /* Padding inside the container */
+            background: white; /* White background */
+            border-radius: 10px; /* Rounded corners */
+        }
+        .feedback-container form {
+            display: flex;
+            flex-direction: column; /*  form elements vertically */
+            justify-content: space-between; /* Spaces elements evenly */
+            align-items: stretch; /* Stretches elements to fill the container */
+            width: 100%; /* Full width */
+        }
+        /*Set the color of heading in feedback-container*/
+        .feedback-container h3{
+            color:black;
+        }
+        .feedback-container textarea {
+            width: 100%; /* Full width */
+            margin-top: 10px; /* Space above the textarea */
+            font-size: 15px; /* Medium font size */
+            padding: 10px; /* Padding inside the textarea */
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px; /* Rounded corners */
+            transition: border-color 0.3s ease; /* Smooth hover effect */
+        }
+       
+        .sendfeedback {
+            background-color: white; /* White background */
+            border: 1px solid black; /* Black border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px 20px; /* Padding inside the button */
+            font-size: large; /* Large font size */
+            cursor: pointer; /* Changes cursor to pointer */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+        }
+        .sendfeedback:hover {
+            background-color:rgb(3, 75, 109);/* Blue background on hover */
+            color: white;/* White text color on hover */
+        }
+        /* Emoji button styling */
+        button{
+            font-size: 2rem; /* Large font size */
+            width: 40px; /* Fixed width */
+            height: 40px; /* Fixed height */
+            border: none; /* Removes border */
+            background: transparent; /* Transparent background */
+            cursor: pointer; /* Changes cursor to pointer */
+            color: white; /* White text color */
+
+        }
+         /* Emoji button hover effect */
+        button:hover {
+            scale: 1.25;/* Increases size on hover */
+        }
+        .location-tag {
+            position: relative; /* Relative positioning */
+            top: 40px; /* Position from the top */
+            left: 10px; /* Position from the left */
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            color: white; /* White text color */
+            padding: 5px; /* Padding inside the tag */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 12px; /* Small font size */
+        }
+        .high-demand {
+            position: relative; /* Relative positioning */
+            top: 40px; /* Position from the top */
+            left: 200px; /* Position from the left */
+            background: red; /* Red background */
+            color: white; /* White text color */
+            padding: 5px; /* Padding inside the tag */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 12px; /* Small font size */
+        }
+          /* Reviews section title styling */
+        .reviews-section .section-title {
+            color: #0492C2; /* Blue text color */
+        }
+
+        /* Hidden content styling */
+        .extra {
+            display: none; /* Hidden by default */
+        }
+
+        /* Paragraph styling */
+        p {
+            display: inline; /* Inline display */
+        }
+
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            height: 2em; /* Large height */
+            display: block; /* Block display */
+            appearance: none; /* Removes default styling */
+        }
+
+        /* Review card label styling */
+        .review-card label {
+            position: relative; /* Relative positioning */
+            padding: 5px; /* Padding inside the label */
+            background-color: darkblue; /* Dark blue background */
+            color: white; /* White text color */
+            cursor: pointer; /* Changes cursor to pointer */
+        }
+
+        /* Review card label content before checkbox is checked */
+        .review-card label:before {
+            content: "Read More"; /* Displays "Read More" text */
+        }
+        /* Review card label content after checkbox is checked */
+        input[type="checkbox"]:checked ~ label:before{
+            content:"Show Less";
+            
+        }
+        /* Hides the "dots" when the checkbox is checked */
+        .dots:has(~ input[type="checkbox"]:checked){
+            display:none;
+        }
+        /* Shows the extra content when the checkbox is checked */
+        .extra:has(~ input[type="checkbox"]:checked){
+            display:inline;
+        }
+        .author{
+            font-weight: bold;
+            color: #333;
+            font-size:15px;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🌊 Life Below Water</div>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="Sitemap.html">Sitemap</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <section class="video-background">
+        <video autoplay loop muted>
+            <source src="images/Main_BG.mp4" type="video/mp4">
+        </video>
+    </section>
+    <!-- Hero section with a background image and title -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Volunteer Opportunities</h1> <!-- Main heading -->
+            <p>Explore various volunteering programs and make a difference!</p><!--Main paragraph-->
+            <!-- Sorting for filtering programs -->
+            <div class="sort-container">
+                <label for="sort">Sort by : </label><!-- Label for the dropdown -->
+                <select id="sort"  class="select-selected" tabindex="0"><!-- Dropdown menu -->
+                    <option value="popular">Most Popular</option><!--first option-->
+                    <option value="new">Newest</option><!--second option-->
+                </select>
+            </div>
+        </div>
+    </section>
+    <!-- Main content section -->
+    <main class="main-content">
+        <h2 class="section-title">Featured Programs</h2><!-- Section title -->
+         <!-- Container for volunteer program cards -->
+        <div class="card-container">
+            <!-- Card 1: Coastal Cleanup -->
+            <div class="card">
+                <span class="location-tag">Negombo</span><!-- Location tag -->
+                <span class="high-demand">High Demand</span><!--High-demand tag -->
+                <img src="images/coral.jpg" alt="Volunteers cleaning a beach in Negombo, Sri Lanka."><!-- Card image -->
+                
+                <div class="card-content">
+                    <h2>Coastal Cleanup</h2><!-- Card title -->
+                    <!-- Card description -->
+                    <p>Help protect marine life and clean up beaches. Participate in conservation efforts and support sustainability.</p>
+                    <ul>
+                        <li>Commitment: 4 months</li>
+                        <li>Start Date: 25.07.2025</li>
+                        <li>End Date: 10.09.2025</li>
+                    </ul>
+                    <br>
+                    <h3>Required Skills</h3> <!-- Subheading for required skills -->
+                    <ul>
+                        <li>Leadership and organization skills</li>
+                        <li>Interest in environmental conservation</li>
+                        <li>Ability to motivate and work with a team</li>
+                    </ul>
+                    <div class="button-container">
+                        <a href="#" class="read-more" tabindex="0">Read More</a>
+                        <a href="#" class="join-now" tabindex="0">Join Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2: Marine Life Awareness -->
+            <div class="card">
+                <span class="location-tag">Trincomalee</span><!-- Location tag -->
+                <img src="images/awareness.jpg" alt="Volunteers learning about marine conservation in Trincomalee."><!-- Card image -->
+                <div class="card-content">
+                    <h2>Marine Life Awareness</h2> <!-- Card title -->
+                    <!-- Card description -->
+                    <p>Educate communities on marine conservation, promoting awareness of marine biodiversity and ocean protection.</p>
+                    <ul>
+                        <li>Commitment: 6 months</li>
+                        <li>Start Date: 25.07.2025</li>
+                        <li>End Date: 10.12.2025</li>
+                    </ul>
+                    <br>
+                    <h3>Required Skills</h3><!-- Subheading for required skills -->
+                    <ul>
+                        <li>Strong Communication skills</li>
+                        <li>Public Speaking</li>
+                        <li>Creativity in educational outreach</li>
+                    </ul>
+
+                    
+                    <div class="button-container">
+                        <a href="#" class="read-more" tabindex="0">Read More</a>
+                        <a href="#" class="join-now" tabindex="0">Join Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3: Sustainable Fishing Advocate -->
+            <div class="card">
+                <span class="location-tag">Batticaloa</span><!-- Location tag -->
+                <img src="images/fishing.jpg" alt="Fishermen and volunteers promoting sustainable fishing in Batticaloa."><!--Card image-->
+                <div class="card-content">
+                    <h2>Sustainable Fishing Advocate</h2><!-- Card title -->
+                    <p>Promote sustainable fishing practices and help reduce overfishing by educating local fishermen and communities.</p>
+                    <ul>
+                        <li>Commitment: 5 months</li>
+                        <li>Start Date: 25.07.2025</li>
+                        <li>End Date: 10.11.2025</li>
+                    </ul>
+                    <br>
+                    <h3>Required Skills</h3><!-- Subheading for required skills -->
+                    <ul>
+                        <li>Knowledge of fishing practices</li>
+                        <li>Communication and teamwork</li>
+                        <li>Passion for marine conservation</li>
+                    </ul>
+                    <!-- Buttons for "Read More" and "Join Now" -->
+                    <div class="button-container">
+                        <a href="#" class="read-more" tabindex="0">Read More</a>
+                        <a href="#" class="join-now" tabindex="0">Join Now</a>
+                    </div>
+                </div>
+            </div>
+             <!-- Card 4: Coral Reef Conservation & Restoration -->
+            <div class="card">
+                <span class="location-tag">Hikkaduwa</span> <!--Location tag -->
+                <img src="images/CoralRestoration.jpg" alt="Scuba diver restoring coral reefs in Hikkaduwa."> <!-- Card image-->
+                <div class="card-content">
+                    <h2>Coral Reef Conservation & Restoration</h2><!-- Card title -->
+                    <!-- Card description -->
+                    <p>Support coral reef conservation efforts by assisting with coral nursery projects, monitoring reef health, and educating local divers and fishermen on sustainable marine practices.</p>
+                    <ul>
+                        <li>Commitment: 5 months</li>
+                        <li>Start Date: 15.07.2025</li>
+                        <li>End Date: 15.12.2025</li>
+                    </ul>
+                    <br>
+                    <h3>Required Skills</h3><!-- Subheading for required skills -->
+                    <ul>
+                        <li>Basic snorkeling or diving experience</li>
+                        <li>Knowledge of marine ecosystems</li>
+                        <li>Communication skills for community outreach</li>
+                    </ul>
+                       <!-- Buttons for "Read More" and "Join Now" -->
+                    <div class="button-container">
+                        <a href="#" class="read-more" tabindex="0">Read More</a>
+                        <a href="#" class="join-now" tabindex="0">Join Now</a>
+                    </div>
+                </div>
+            </div>
+              <!-- Card 5: Sea Turtle Protection & Rehabilitation -->
+            <div class="card">
+                <span class="location-tag">Bentota & Kosgoda</span>  <!--Location tag-->
+                <img src="images/TurtleProtection.jpg" alt="Volunteer releasing a baby sea turtle in Bentota."><!--Card image-->
+                <div class="card-content">
+                    <h2>Sea Turtle Protection & Rehabilitation</h2>  <!-- Card title-->
+                    <!--Card description-->
+                    <p>Assist in the protection and rehabilitation of endangered sea turtles by monitoring nests, rescuing them, and educating local communities on conservation efforts.</p>
+                    <ul>
+                        <li>Commitment: 3 months</li>
+                        <li>Start Date: 01.09.2025</li>
+                        <li>End Date: 01.12.2025</li>
+                    </ul>
+                    <br>
+                    <h3>Required Skills</h3>  <!--Subheading for required skills -->
+                    <ul>
+                        <li>Interest in marine wildlife conservation
+                        <li>Ability to work flexible hours, including night shifts</li>
+                        <li>Basic understanding of biology or ecology</li>
+                    </ul>
+                    <!-- Buttons for "Read More" and "Join Now" -->
+                    <div class="button-container">
+                        <a href="#" class="read-more" tabindex="0">Read More</a>
+                        <a href="#" class="join-now" tabindex="0">Join Now</a>
+                    </div>
+                </div>
+            </div>
+             <!-- Card 6: Marine Plastic Cleanup -->
+            <div class="card">
+                <span class="location-tag">Galle</span> <!--Locartion tag-->
+                <img src="images/PlasticCleanup.jpg" alt="Volunteers collecting plastic waste on a beach in Galle."><!--Card image-->
+                <div class="card-content">
+                    <h2>Marine Plastic Cleanup</h2><!--Card title-->
+                    <!--Card description-->
+                    <p>Help reduce ocean pollution by collecting and recycling marine plastic waste along Sri Lanka’s beaches and coastal waters. Support local communities in creating sustainable waste management solutions.</p>
+                    <ul>
+                        <li>Commitment: 4 months</li>
+                        <li>Start Date: 20.08.2025</li>
+                        <li>End Date: 20.12.2025</li>
+                    </ul>
+                    <br>
+                    <h3>Required Skills</h3><!--Subehading for required skills-->
+                    <ul>
+                        <li>Passion for environmental conservation</li>
+                        <li>Teamwork and problem-solving abilities</li>   
+                        <li>Physical stamina for beach and ocean cleanups</li>
+                    </ul>
+                    <!-- Buttons for "Read More" and "Join Now" -->
+                    <div class="button-container">
+                        <a href="#" class="read-more" tabindex="0">Read More</a>
+                        <a href="#" class="join-now" tabindex="0">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Reviews section -->
+    <section class="reviews-section">
+        <h2 class="section-title">What Our Volunteers Say</h2><!-- Section title -->
+        <div class="reviews-row">
+             <!-- Reviews summary container -->
+            <div class="reviews-contianer">
+                <h1>9.4/10</h1><!-- Average rating -->
+                <span style="font-size:35px; color: gold;">★★★★☆</span><!-- Star rating -->
+                <h4>Exceptional</h4><!-- Star rating -->
+                <h6>109 reviews</h6><!-- Number of reviews -->
+                <br>
+                <!-- Button to view all reviews -->
+                <div class="button-container">
+                    <a href="#reviews-popup" class="view-reviews">See all 109 reviews</a>
+                </div>
+                 <!-- Popup for all reviews -->
+                <div id="reviews-popup" class="pop-box">
+                    <div class="popbox-content">
+                        <a href="#" class="close-popbox">&times;</a><!-- Close button -->
+                        <h2>All 109 Reviews</h2><!-- Popup title -->
+                         <!-- Review cards inside the popup -->
+                        <div class="review-card">
+                            <h3>10/10 Excellent</h3> <!-- Review rating -->
+                            <!-- Review text -->
+                            <p>Volunteering with Coastal Care was an eye-opening experience. Helping restore coral reefs and clean beaches felt truly rewarding. The team was amazing,and I’m proud to have contributed to such a meaningful cause!</p>
+                            <h3>Daniella G.</h3> <!-- Reviewer name -->
+                            <p style="font-size:10px;">Feb 15, 2025</p> <!-- Reviewer date -->
+                        </div>
+
+                        <div class="review-card">
+                            <h3>10/10 Excellent</h3>
+                            <p>Volunteering with Coastal Care was an eye-opening experience. Helping restore coral reefs and clean beaches felt truly rewarding. The team was amazing,and I’m proud to have contributed to such a meaningful cause!</p>
+                            <h3>Daniella G.</h3>
+                            <p style="font-size:10px;">Feb 12, 2025</p>
+                        </div>
+                        <div class="review-card">
+                            <h3>9.5/10 Excellent</h3>
+                            <p>Teaching kids about ocean protection was a highlight for me.I loved seeing their understanding of how their actions could help the ocean.It's inspiring to see how education can have a lasting impact!"</p>
+                            <h3>John D.</h3>
+                            <p style="font-size:10px;">Jan 5, 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Individual review cards -->
+            <div class="reviews-container">
+                <!--review card 1-->
+                <div class="review-card">
+                    <h3>10/10 Excellent</h3><!-- Review rating -->
+                    <!-- Review text -->
+                    <p class="original">Volunteering with Coastal Care was an eye-opening experience. Helping restore coral reefs and clean beaches felt truly rewarding. The team was amazing,</p>
+                    <span class="dots">...</span> <!-- Dots for "Read More" -->
+                    <p class="extra">and I’m proud to have contributed to such a meaningful cause! <br> 
+                         <span class="author">Daniella G. - Feb 15, 2025</span></p><!-- Hidden content -->
+                    <input type="checkbox" id="btn"><!-- Label for the checkbox -->
+                    <label for="btn" ></label>
+                </div>
+                <!--review card 2-->
+                <div class="review-card">
+                    <h3>9.5/10 Excellent</h3>
+                    <p class="original2">Teaching kids about ocean protection was a highlight for me.I loved seeing their understanding of how their actions could help the ocean.</p>
+                    <span class="dots">...</span>
+                    <p class="extra"> It's inspiring to see how education can have a lasting impact!"<br>
+                        <span class="author">John D. - Feb 12, 2025</span></p><!-- Hidden content -->
+                    <input type="checkbox" id="btn2">
+                    <label for="btn2" ></label>
+                </div>
+            </div>
+        </div>
+        <!-- Feedback form section -->
+        <div class="feedback-container">
+            <form action="#" method="post">
+                <h3>Send us your feedback</h3><!-- Form title -->
+                <div>
+                    <button class="emoji">&#128545;</button> <!-- Angry emoji -->
+                    <button class="emoji">&#128528;</button> <!-- Neutral emoji -->
+                    <button class="emoji">&#128522;</button> <!-- Happy emoji -->
+                    <button class="emoji">&#128525;</button> <!-- Heart eyes emoji -->
+                    <button class="emoji">&#127775;</button> <!-- Star emoji -->
+                </div>
+                 <!-- Textarea for feedback -->
+                <div>
+                    <label for="suggestions">Enter a suggestion:</label>
+                    <textarea id="suggestions" name="review" rows="10" cols="50">Got a suggestion? We'd love to hear it!</textarea>
+                </div>
+                <!-- Buttons for submitting or resetting the form -->
+                <div>
+                    <input type="submit" value="Send Feedback" class="sendfeedback">
+                    <input type="reset" value="Cancel" class="sendfeedback">
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+<footer>
+    <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
+</footer>
+</html>

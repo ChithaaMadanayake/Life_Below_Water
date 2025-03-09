@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form - Life Below Water</title>
+    <link rel="stylesheet" href="CSS/Main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            color: black; 
+        }
+        h2 {
+        font-size: 28px;
+        color: #023e8a;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 80px; 
+        }
+
+
+        form {
+        background: rgba(255, 255, 255, 0.6); 
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+        }
+
+
+        fieldset {
+            border: 2px solid #0288d1;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        legend {
+            font-weight: bold;
+            color: #01579b;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #28292b;
+            border-radius: 5px;
+        }
+        select {
+            height: 40px;
+        }
+        .rating {
+            display: flex;
+            gap: 5px; /* Add space between the stars */
+        }
+        .rating span {
+            font-size: 30px;
+            cursor: pointer;
+            transition: transform 0.2s, color 0.2s; /* Smooth transition for color change */
+        }
+        .rating span:hover {
+            transform: scale(1.5);
+            color: gold; /* Change color on hover */
+        }
+        .rating span.active {
+            color: gold;
+        }
+        .submit-btn {
+            background: #0288d1;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background: #01579b;
+        }
+        .char-count {
+            font-size: 12px;
+            color: #01579b;
+        }
+        .participation-list {
+            max-height: 150px; /* Set the height of the scrollable list */
+            overflow-y: auto; /* Enable vertical scrolling */
+            overflow-x: hidden; /* Disable horizontal scrolling */
+        }
+    </style>
+    <script>
+        function updateCharCount() {
+            const comment = document.getElementById("comment");
+            const count = document.getElementById("charCount");
+            count.textContent = `${comment.value.length}/500 characters used`;
+        }
+
+        function toggleActiveRating(event) {
+            const stars = document.querySelectorAll('.rating span');
+            stars.forEach(star => star.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">🌊 Life Below Water</div>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="Sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+    <section class="video-background">
+        <video autoplay loop muted>
+            <source src="images/Main_BG.mp4" type="video/mp4">
+        </video>
+    </section>
+    
+    <h2>Feedback Form - Life Below Water</h2>
+    <form>
+        <fieldset>
+            <legend>Personal Details</legend>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Telephone Number:</label>
+            <input type="tel" id="phone" name="phone">
+            
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Feedback Details</legend>
+            <label for="comment">Comment or Message:</label>
+            <textarea id="comment" name="comment" maxlength="500" required oninput="updateCharCount()"></textarea>
+            <p class="char-count" id="charCount">0/500 characters used</p>
+            
+            <label for="rating">Rate Your Experience:</label>
+            <div class="rating" onclick="toggleActiveRating(event)">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Environmental Concerns</legend>
+            <label for="concern">Choose an issue:</label>
+            <select id="concern" name="concern">
+                <option value="" disabled selected>Choose an issue</option>
+                <option value="Plastic Pollution">Plastic Pollution</option>
+                <option value="Coral Bleaching">Coral Bleaching</option>
+                <option value="Overfishing">Overfishing</option>
+                <option value="Oil Spills">Oil Spills</option>
+                <option value="Marine Habitat Destruction">Marine Habitat Destruction</option>
+                <option value="Climate Change Impact">Climate Change Impact</option>
+            </select>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Participation Interests</legend>
+            <div class="participation-list">
+                <input type="checkbox" id="cleanups" name="interest" value="Beach Cleanups">
+                <label for="cleanups">Beach Cleanups</label><br>
+                <input type="checkbox" id="donation" name="interest" value="Donations">
+                <label for="donation">Donations</label><br>
+                <input type="checkbox" id="awareness" name="interest" value="Awareness Campaigns">
+                <label for="awareness">Awareness Campaigns</label><br>
+                <input type="checkbox" id="reefRestoration" name="interest" value="Reef Restoration">
+                <label for="reefRestoration">Reef Restoration</label><br>
+                <input type="checkbox" id="plasticFree" name="interest" value="Plastic-Free Oceans">
+                <label for="plasticFree">Plastic-Free Oceans</label><br>
+                <input type="checkbox" id="sustainableFishing" name="interest" value="Sustainable Fishing">
+                <label for="sustainableFishing">Sustainable Fishing</label><br>
+                <input type="checkbox" id="education" name="interest" value="Education and Outreach">
+                <label for="education">Education and Outreach</label><br>
+                <input type="checkbox" id="policyAdvocacy" name="interest" value="Policy Advocacy">
+                <label for="policyAdvocacy">Policy Advocacy</label><br>
+                <input type="checkbox" id="marineResearch" name="interest" value="Marine Research">
+                <label for="marineResearch">Marine Research</label><br>
+                <input type="checkbox" id="ecoTourism" name="interest" value="Eco-Tourism">
+                <label for="ecoTourism">Eco-Tourism</label><br>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Preferred Contact Method</legend>
+            <input type="radio" id="email_contact" name="contact_method" value="Email" required>
+            <label for="email_contact">Email</label>
+            <input type="radio" id="phone_contact" name="contact_method" value="Phone">
+            <label for="phone_contact">Phone</label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Upload Supporting Document</legend>
+            <label for="file">Upload File:</label>
+            <input type="file" id="file" name="file">
+        </fieldset>
+
+        <fieldset>
+            <legend>Date and Time Selection</legend>
+            <label for="date">Choose a Date:</label>
+            <input type="date" id="date" name="date" required><br><br>
+            
+            <label for="datetime">Choose a Date and Time for Feedback Submission:</label>
+            <input type="datetime-local" id="datetime" name="datetime" required>
+        </fieldset>
+        
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+    </form>
+
+    <footer style="text-align: center; margin-top: 40px;">
+        <p>Page editor : <a href="pageEditor_ST3.html" target="_blank">Student 3 - Page Editor</a></p>
+    </footer>
+
+
+</body>
+</html>

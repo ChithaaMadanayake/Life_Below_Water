@@ -1,0 +1,125 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    padding-bottom: 100px; /* Space for the fixed footer */
+}
+
+/* Main heading (h1) styling */
+h1 {
+    font-size: 28px;
+    color: #023e8a;
+    margin-top: 50px; /* Add space before the main heading */
+    margin-bottom: 20px; /* Add space after the main heading (space between h1 and paragraph) */
+}
+
+/* Paragraph styling */
+p {
+    margin-top: 20px; /* Add space before the paragraph */
+    font-size: 1em;
+    color: #3b3b3b;
+    text-align: center; /* Center the text horizontally */
+}
+
+
+/* Container for the team members */
+.team_container {
+    margin-top: 40px; /* Add more space after h1 or team content */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual team member styling */
+.team_member {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 220px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    outline: none;
+}
+
+/* Thumbnail image styling and hover/focus effect */
+.thumbnail {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover and Focus effect on thumbnail */
+.team_member:hover .thumbnail img,
+.team_member:focus .thumbnail img {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+/* Team details section */
+.team_details {
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+/* Expandable details show on hover or focus */
+.team_member:hover .team_details,
+.team_member:focus .team_details {
+    opacity: 1;
+    max-height: 200px;
+}
+
+/* Header and description text styles */
+.team_details h3,
+.team_details h4 {
+    font-size: 1.2em;
+    color: #252525;
+    margin-bottom: 10px; /* Add margin to separate from content below */
+}
+
+.team_details p {
+    font-size: 1em;
+    color: #3b3b3b;
+    margin-top: 10px; /* Add margin to separate from the headers */
+}
+
+/* Hover/focus effect on team member container */
+.team_member:hover,
+.team_member:focus {
+    transform: translateY(-10px);
+    outline: 3px solid #1e90ff; /* Highlight border for accessibility */
+}
+
+
+/* Responsiveness for mobile */
+@media (max-width: 768px) {
+    .team_container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team_member {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
