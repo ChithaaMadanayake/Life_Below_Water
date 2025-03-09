@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Main.css">
     <title>User Profile</title>
     <style>
         /* Global Styles */
@@ -31,8 +32,11 @@
             padding: 30px;
             border: 2px solid #DFE4E7;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             transition: transform 0.3s ease;
+            margin-top: 90px;
+            background-color: #0B0845;
+
         }
 
         .profile-header:hover {
@@ -45,6 +49,8 @@
             width: 100px;
             height: 100px;
             margin: 0 auto 15px auto;
+            background-color: #0B0845;
+
         }
 
         .avatar {
@@ -88,6 +94,8 @@
             padding: 20px;
             margin-bottom: 20px;
             transition: transform 0.3s ease;
+            background-color: #0B0845;
+
         }
 
         .introduction:hover {
@@ -109,7 +117,10 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
+            margin-top: 20px;
             transition: transform 0.3s ease;
+            background-color: #0B0845;
+
         }
 
         .section:hover {
@@ -124,7 +135,46 @@
             border-bottom: 1px solid rgba(223, 228, 231, 0.3);
             padding-bottom: 10px;
         }
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
+
+        main {
+            flex: 1; /* Pushes the footer to the bottom */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1E1E1E;
+            color: #DFE4E7;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #4DB8FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #33A1CC;
+            text-decoration: underline;
+        }
         /* Skills Section */
         .skill {
             margin-bottom: 20px;
@@ -297,37 +347,37 @@
         }
 
         .availability-calendar {
-    background-color: #0B0845;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
+            background-color: #0B0845;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
 
-h2 {
-    color: #DFE4E7;
-    margin-bottom: 10px;
-}
+        h2 {
+            color: #DFE4E7;
+            margin-bottom: 10px;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: rgba(223, 228, 231, 0.1);
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(223, 228, 231, 0.1);
+        }
 
-th, td {
-    border: 1px solid #DFE4E7;
-    padding: 10px;
-    text-align: center;
-    color: #DFE4E7;
-}
+        th, td {
+            border: 1px solid #DFE4E7;
+            padding: 10px;
+            text-align: center;
+            color: #DFE4E7;
+        }
 
-th {
-    background: rgba(223, 228, 231, 0.2);
-}
+        th {
+            background: rgba(223, 228, 231, 0.2);
+        }
 
-td {
-    background: rgba(223, 228, 231, 0.1);
-}
+        td {
+            background: rgba(223, 228, 231, 0.1);
+        }
 
 
 .availability-calendar {
@@ -391,26 +441,6 @@ td {
             transform: translateY(-2px);
             box-shadow: 0 2px 5px rgba(223, 228, 231, 0.2);
         }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid rgba(223, 228, 231, 0.3);
-            margin-top: 40px;
-        }
-
-        .footer a {
-            color: #DFE4E7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -428,6 +458,24 @@ td {
     </style>
 </head>
 <body>
+    <section class="video-background">
+        <video autoplay loop muted>
+            <source src="images/Main_BG.mp4" type="video/mp4">
+        </video>
+    </section>
+    <nav>
+        <div class="logo">🌊 Life Below Water</div>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="Sitemap.html">Sitemap</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
         <!-- Header Section -->
         <header class="profile-header">
@@ -659,11 +707,6 @@ td {
                 <button type="submit">Send Message</button>
             </form>
         </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>This page was created by Student 4 | <a href="pageEditor_ST4.html">Page Editor</a> | <a href="https://sdgs.un.org/goals">UN Sustainable Goals</a></p>
-        </footer>
     </div>
 
     <script>
@@ -749,4 +792,7 @@ td {
         });
     </script>
 </body>
+<footer>
+    <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
+</footer>
 </html>

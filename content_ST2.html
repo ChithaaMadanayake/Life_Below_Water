@@ -64,7 +64,7 @@
         .about-section h2 {
             font-size: 36px;
             margin-bottom: 20px;
-            color: #4DB8FF;
+            color: #1E1E1E;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -148,38 +148,12 @@
         .section-title {
             text-align: center;
             font-size: 36px;
-            color: #4DB8FF;
+            color: #b7bdec;
             margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #4DB8FF;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            padding: 15px;
-            font-size: 18px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .back-to-top:hover {
-            background-color: #33A1CC;
-            transform: scale(1.1);
-        }
-
-        footer {
-            background-color: #0B0845;
-            color: #DFE4E7;
-            padding: 20px;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
@@ -195,7 +169,11 @@
             <li><a href="#feedback">Feedback</a></li>
         </ul>
     </nav>
-
+    <section class="video-background">
+        <video autoplay loop muted>
+            <source src="images/Main_BG.mp4" type="video/mp4">
+        </video>
+    </section>
     <section class="about-section" id="about">
         <h2><br>Our Vision for the Oceans</h2>
         <p>Our conservation projects are built on the understanding that the oceans are crucial to life on Earth. They regulate climate, provide oxygen, and sustain the ecosystems of countless marine species. By tackling pollution, overfishing, and habitat destruction, we aim to restore and protect these invaluable resources for future generations.</p>
@@ -205,32 +183,49 @@
         <h2 class="section-title">Our Conservation Projects</h2>
         <div class="project">
             <i class="fas fa-water"></i>
-            <img src="https://www.example.com/images/coral-reef.jpg" alt="Coral Reef Restoration">
+            <img src="images/Coral.jpg" alt="Coral Reef Restoration">
             <h3>Coral Reef Restoration</h3>
             <p>We’re rebuilding coral reefs that have been damaged by human activity and climate change. Our efforts aim to provide safe havens for marine species and support biodiversity.</p>
         </div>
         <div class="project">
             <i class="fas fa-trash-alt"></i>
-            <img src="https://www.example.com/images/plastic-pollution.jpg" alt="Plastic Pollution Reduction">
+            <img src="images/plastic.jpg" alt="Plastic Pollution Reduction">
             <h3>Plastic Pollution Reduction</h3>
             <p>Plastic waste is a silent killer of marine life. We work with communities to clean up beaches and reduce plastic use, advocating for better recycling practices and alternatives.</p>
         </div>
         <div class="project">
             <i class="fas fa-fish"></i>
-            <img src="https://www.example.com/images/sustainable-fishing.jpg" alt="Sustainable Fishing Initiatives">
+            <img src="images/fishing.jpg" alt="Sustainable Fishing Initiatives">
             <h3>Sustainable Fishing</h3>
             <p>By promoting sustainable fishing methods, we aim to protect marine species from overexploitation and ensure that future generations benefit from healthy fish populations.</p>
         </div>
         <div class="project">
             <i class="fas fa-turtle"></i>
-            <img src="https://www.example.com/images/marine-wildlife.jpg" alt="Marine Wildlife Protection">
+            <img src="images/marine.jpg" alt="Marine Wildlife Protection">
             <h3>Marine Wildlife Protection</h3>
             <p>We protect endangered species like sea turtles and whales through focused conservation efforts that prevent habitat destruction and support safe migration routes.</p>
         </div>
+        <!-- Additional Project Cards -->
+        <div class="project">
+            <i class="fas fa-leaf"></i>
+            <img src="images/Mangrove.jpg" alt="Mangrove Restoration">
+            <h3>Mangrove Restoration</h3>
+            <p>We’re working on restoring mangrove forests that serve as vital ecosystems for both marine and terrestrial species. These areas act as a buffer against coastal erosion and provide a nursery for fish.</p>
+        </div>
+        <div class="project">
+            <i class="fas fa-sea-turtle"></i>
+            <img src="images/Turtle.jpg" alt="Sea Turtle Conservation">
+            <h3>Sea Turtle Conservation</h3>
+            <p>We’re dedicated to protecting sea turtles from threats like poaching, habitat destruction, and entanglement in fishing nets. Our programs support the recovery of endangered species.</p>
+        </div>
+        
+        <div class="project">
+            <i class="fas fa-umbrella-beach"></i>
+            <img src="images/Cleanup.jpg" alt="Beach Cleanup Initiatives">
+            <h3>Beach Cleanup Initiatives</h3>
+            <p>Our beach cleanup programs focus on removing harmful waste, particularly plastics, from shorelines, preventing debris from entering the oceans and endangering marine wildlife.</p>
+        </div>
     </section>
-
-    <button class="back-to-top">↑</button>
-
     <footer>
         <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
     </footer>

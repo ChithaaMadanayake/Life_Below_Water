@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: 'Poppins', sans-serif;
     color: #DFE4E7;
@@ -168,6 +169,25 @@ nav a:hover {
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 15px;
+}
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4DB8FF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #33A1CC;
+    transform: scale(1.1);
 }
 
 /* Footer */
