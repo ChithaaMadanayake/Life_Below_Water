@@ -170,30 +170,6 @@ nav a:hover {
     border-radius: 10px;
     margin-bottom: 15px;
 }
-<<<<<<< HEAD
-=======
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #4DB8FF;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 15px;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.back-to-top:hover {
-    background-color: #33A1CC;
-    transform: scale(1.1);
-}
->>>>>>> b412e2c46cfbc59ef2efc86edd2bda25cfb51154
-
-/* Footer */
 footer {
     background-color: #1E1E1E;
     color: #DFE4E7;

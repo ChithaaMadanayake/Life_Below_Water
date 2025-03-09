@@ -111,29 +111,6 @@ p {
     outline: 3px solid #1e90ff; /* Highlight border for accessibility */
 }
 
-/* Footer styles */
-footer {
-    text-align: center;
-    font-size: 1em;
-    color: #d0c9c9;
-    position: fixed;      /* Fixes the footer at the bottom of the screen */
-    left: 0;
-    bottom: 0;            /* Positions it at the bottom */
-    width: 100%;
-    background-color: #fff;
-    padding: 10px 0;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /*Adds a shadow above the footer */
-    z-index: 1000;        /* Ensure it's above other content */
-}
-
-footer a {
-    color: #1e90ff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
 
 /* Responsiveness for mobile */
 @media (max-width: 768px) {
