@@ -3,20 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty of our sea</title>
+    <title>Beauty of our Sea</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/Main.css">
-        <style>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
         .album {
-            font-family: 'Nunito', sans-serif;
             text-align: center;
             padding: 40px 10px;
             color: #0B0845;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
         }
 
         .album h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
+            margin-top: 60px;
         }
 
         .album p {
@@ -24,6 +42,7 @@
             margin-bottom: 30px;
         }
 
+        /* Image Grid */
         .responsive-container-block {
             display: flex;
             flex-wrap: wrap;
@@ -38,19 +57,51 @@
             position: relative;
             overflow: hidden;
             border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            animation: fadeInUp 1.2s ease-in-out both;
         }
 
         .img-container img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+
+        /* Hover Effects */
+        .img-container:hover {
+            transform: scale(1.05);
         }
 
         .img-container:hover img {
             transform: scale(1.1);
+            box-shadow: 0px 0px 30px rgba(0, 0, 255, 0.7);
+            border-radius: 15px;
         }
 
+        /* Fade-in effect for images */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Text Fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .img-container {
                 flex: 1 1 calc(50% - 15px);
@@ -62,69 +113,55 @@
                 flex: 1 1 100%;
             }
         }
-        </style>
-    </head>
-    <body>
-        <nav>
-            <div class="logo">🌊 Life Below Water</div>
-            <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="table.html">Table</a></li>
-                <li><a href="Profile.html">Profile</a></li>
-                <li><a href="volunteer.html">Volunteer</a></li>
-                <li><a href="Sitemap.html">Sitemap</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-            </ul>
-        </nav>
-        <section class="video-background">
-            <video autoplay loop muted>
-                <source src="images/Main_BG.mp4" type="video/mp4">
-            </video>
-        </section>
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">🌊 Life Below Water</div>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="Sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <!-- Background Video Section -->
+    <section class="video-background">
+        <video autoplay loop muted>
+            <source src="images/Main_BG.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <!-- Album Section -->
     <div class="album">
         <h1>Life Below Water</h1>
         <p>Explore the beauty and importance of marine life.</p>
+
         <div class="responsive-container-block">
-            <div class="img-container">
-                <img src="images/Coral.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/Energy.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/marine.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/hikkaduwacoralbeach.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/Mangrove.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/fishing.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/bentotabeach.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/CoralRestoration.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/Mari_Eco.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/img8.jpg">
-            </div>
-            <div class="img-container">
-                <img src="images/coralreef.jpg">
-            </div>
+            <div class="img-container"><img src="images/Coral.jpg"></div>
+            <div class="img-container"><img src="images/Energy.jpg"></div>
+            <div class="img-container"><img src="images/marine.jpg"></div>
+            <div class="img-container"><img src="images/hikkaduwacoralbeach.jpg"></div>
+            <div class="img-container"><img src="images/Mangrove.jpg"></div>
+            <div class="img-container"><img src="images/fishing.jpg"></div>
+            <div class="img-container"><img src="images/bentotabeach.jpg"></div>
+            <div class="img-container"><img src="images/CoralRestoration.jpg"></div>
+            <div class="img-container"><img src="images/Mari_Eco.jpg"></div>
+            <div class="img-container"><img src="images/img8.jpg"></div>
+            <div class="img-container"><img src="images/coralreef.jpg"></div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
-    </footer>
-</body>
-</html>
 
+</body>
+<footer>
+    <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
+</footer>
+</html>

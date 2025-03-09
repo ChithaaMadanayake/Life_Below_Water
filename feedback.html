@@ -141,15 +141,20 @@
         
         <fieldset>
             <legend>Feedback Details</legend>
+        
             <label for="comment">Comment or Message:</label>
             <textarea id="comment" name="comment" maxlength="500" required oninput="updateCharCount()"></textarea>
             <p class="char-count" id="charCount">0/500 characters used</p>
             
-            <label for="rating">Rate Your Experience:</label>
+            <!-- ✅ Updated Rating Section Starts Here -->
+            <p>Rate Your Experience:</p>
             <div class="rating" onclick="toggleActiveRating(event)">
                 <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
             </div>
+            <!-- ✅ Updated Rating Section Ends Here -->
+        
         </fieldset>
+        
         
         <fieldset>
             <legend>Environmental Concerns</legend>
