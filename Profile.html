@@ -146,35 +146,7 @@
             flex: 1; /* Pushes the footer to the bottom */
         }
 
-        /* Footer */
-        footer {
-            background-color: #1E1E1E;
-            color: #DFE4E7;
-            text-align: center;
-            padding: 20px;
-            font-size: 16px;
-            position: relative;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        footer a {
-            color: #4DB8FF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            color: #33A1CC;
-            text-decoration: underline;
-        }
+        
         /* Skills Section */
         .skill {
             margin-bottom: 20px;
@@ -222,9 +194,7 @@
             z-index: 10;
         }
 
-        .slider-handle:active {
-            cursor: grabbing;
-        }
+        
 
         /* Goals Section */
         .goals-list {
@@ -320,44 +290,7 @@
             font-size: 14px;
         }
 
-        /* Calendar Section */
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            margin-top: 15px;
-        }
-
-        .calendar-day {
-            padding: 10px;
-            border: 1px solid #DFE4E7;
-            text-align: center;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .calendar-day:not(.day-header):hover {
-            background: rgba(223, 228, 231, 0.2);
-        }
-
-        .day-header {
-            font-weight: bold;
-            background: rgba(223, 228, 231, 0.2);
-        }
-
-        .availability-calendar {
-            background-color: #0B0845;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #DFE4E7;
-            margin-bottom: 10px;
-        }
-
+       
         table {
             width: 100%;
             border-collapse: collapse;
@@ -711,79 +644,7 @@
     </div>
 
     <script>
-        // Initialize draggable sliders
-        document.querySelectorAll('.slider-container').forEach(container => {
-            const handle = container.querySelector('.slider-handle');
-            const fill = container.querySelector('.slider-fill');
-            const percentageDisplay = container.parentElement.querySelector('.skill-name span:last-child');
-            
-            // Make the slider handle draggable
-            handle.addEventListener('mousedown', function(e) {
-                e.preventDefault();
-                
-                // Calculate slider dimensions
-                const containerWidth = container.offsetWidth;
-                
-                // Function to update slider position
-                function updateSliderPosition(clientX) {
-                    const containerRect = container.getBoundingClientRect();
-                    let newPosition = clientX - containerRect.left;
-                    
-                    // Constrain within slider bounds
-                    if (newPosition < 0) newPosition = 0;
-                    if (newPosition > containerRect.width) newPosition = containerRect.width;
-                    
-                    // Calculate percentage
-                    const percentage = Math.round((newPosition / containerRect.width) * 100);
-                    
-                    // Update handle and fill
-                    handle.style.left = percentage + '%';
-                    fill.style.width = percentage + '%';
-                    
-                    // Update percentage display
-                    percentageDisplay.textContent = percentage + '%';
-                }
-                
-                // Mouse move handler
-                function onMouseMove(e) {
-                    updateSliderPosition(e.clientX);
-                }
-                
-                // Mouse up handler
-                function onMouseUp() {
-                    document.removeEventListener('mousemove', onMouseMove);
-                    document.removeEventListener('mouseup', onMouseUp);
-                }
-                
-                // Add event listeners
-                document.addEventListener('mousemove', onMouseMove);
-                document.addEventListener('mouseup', onMouseUp);
-            });
-            
-            // Click on the slider container to jump to position
-            container.addEventListener('click', function(e) {
-                // Ignore clicks on the handle
-                if (e.target === handle) return;
-                
-                const containerRect = container.getBoundingClientRect();
-                let newPosition = e.clientX - containerRect.left;
-                
-                // Constrain within slider bounds
-                if (newPosition < 0) newPosition = 0;
-                if (newPosition > containerRect.width) newPosition = containerRect.width;
-                
-                // Calculate percentage
-                const percentage = Math.round((newPosition / containerRect.width) * 100);
-                
-                // Update handle and fill
-                handle.style.left = percentage + '%';
-                fill.style.width = percentage + '%';
-                
-                // Update percentage display
-                percentageDisplay.textContent = percentage + '%';
-            });
-        });
-
+        
         // Form submission handler
         const form = document.querySelector('.contact-form');
         form.addEventListener('submit', function(e) {
