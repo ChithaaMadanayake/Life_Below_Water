@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Define encoding and view port for responsive design-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Import Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    
+    <!--title for the web page-->
+    <title>Blog Section</title>
+    <link rel="stylesheet" href="CSS/Main.css">
+
+    <style>
+        /* Reset default browser styles and apply a consistent font */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Set background with a gradient and white text for contrast */
+        body {
+            background: linear-gradient(135deg, rgb(19, 1, 100), rgb(10, 0, 50));
+            color: white;
+        }
+
+        /* Center section content and provide some spacing */
+        section {
+            width: 96%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Sidebar for top destinations - Fixed to the left side of the page */
+        .top-destination {
+            position: fixed; /* Keeps it in place while scrolling */
+            top: 200px; /* Position it lower on the screen */
+            left: 0; /* Stays on the left edge */
+            width: 100px; /* Adjust width */
+            height: 50vh; /* 50% of the viewport height */
+            background: #f8f9fa; /* Light background for contrast */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Ensures it stays above other content */
+            border-radius: 10px;
+        }
+
+        /* Styling for individual destination items inside the sidebar */
+        .top-destination .top3 {
+            width: 100%; /* Full width of the sidebar */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+            text-align: center; /* Center text */
+            font-size: 16px; /* Set font size */
+            color: #0077b6; /* Blue text color */
+            margin: 15px 0; /* Add margin to top and bottom */
+        }
+        .top-destination .top3 a:hover {
+            font-weight: bold; /* Make the text bold */
+            color: #005f80; /* Darken the color on hover */
+        }
+
+        /* Styling for icons inside the sidebar */
+        .top-destination .icon {
+            font-size: 1.8rem; /* Set icon size */
+            color: #0077b6; /* Blue icon color */
+            margin-bottom: 10px; /* Add space below the icon */
+        }
+        
+
+        /* Main content container */
+        .container {
+            margin-top: 100px; /* Add space above the container */
+            margin-left: 270px; /* Create space for the sidebar */
+            padding: 20px; /* Add padding inside the container */
+        }
+
+        /* Image section */
+        .image-container {
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center items horizontally */
+            gap: 20px; /* Space between images */
+            margin: 50px 150px; /* Add margin to top, bottom, left, and right */
+            padding: 30px; /* Add padding inside the container */
+            flex-wrap: nowrap; /* Prevent wrapping of images */
+            border: 2px solid white; /* Add a white border */
+            text-align: center; /* Center text */
+        }
+
+        /* Individual image box */
+        .image-box {
+            width: 200px; /* Set width of the image box */
+            height: 300px; /* Set height of the image box */
+            border-radius: 20px; /* Round the corners */
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3); /* Add a shadow */
+            background-position: center; /* Center the background image */
+            background-size: cover; /* Scale the background image to cover the box */
+            display: inline-block; /* Display as an inline block */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        /* Hover effect for images */
+        .image-box:hover {
+            transform: translateY(-10px); /* Move the box up slightly */
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+        }
+
+        /* Styling for links */
+        a {
+            text-decoration: none; /* Remove underline from links */
+            color: rgb(255, 255, 255); /* Set link color */
+            transition: color 0.3s ease; /* Smooth color transition on hover */
+        }
+        a:hover{
+            font-weight:bold;
+        }
+
+        /* Blog section container */
+        #content-blog {
+            width: 80%; /* Set width of the blog section */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+            padding: 40px; /* Add padding inside the container */
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            border-radius: 15px; /* Round the corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Add a shadow */
+            margin: 50px auto; /* Center the container and add margin */
+        }
+
+        /* Blog section heading */
+        .content-heading {
+            text-align: center; /* Center the heading text */
+            margin-bottom: 30px; /* Add space below the heading */
+        }
+        .content-heading li{
+            list-style-position:inside;
+            line-height:1.8;
+        }
+
+        /* Blog section heading text */
+        .content-heading h1 {
+            color: white; /* Set heading text color */
+        }
+
+        /* Container for individual blog posts */
+        .blog-container {
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow wrapping of blog posts */
+            gap: 20px; /* Space between blog posts */
+            justify-content: center; /* Center blog posts horizontally */
+            width: 100%; /* Full width of the container */
+            height: 100%; /* Full height of the container */
+        }
+
+        /* Individual blog post box */
+        .blog-box {
+            width: 800px; /* Set width of the blog box */
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 15px; /* Round the corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Add a shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            margin-bottom: 20px; /* Add space below the blog box */
+        }
+
+        /* Hover effect for blog post */
+        .blog-box:hover {
+            transform: translateY(-10px); /* Move the box up slightly */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+        }
+
+        /* Blog post image */
+        .blog-img img {
+            width: 100%; /* Full width of the image */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Scale the image to cover the container */
+        }
+
+        /* Blog post text content */
+        .blog-text {
+            padding: 20px; /* Add padding inside the text container */
+            text-align: left; /* Align text to the left */
+        }
+        .blog-text ul{
+            list-style-type:disc;
+            list-style-position:inside;
+        }
+        .blog-text dl{
+            color:black;
+        }
+        .blog-text dt{
+            font-weight:bold;
+        }
+        .blog-text dt, dd {
+            line-height: 1.8; /* Adjust this value to increase or decrease line spacing */
+        }
+
+        /* Date or category text */
+        .blog-text span {
+            font-size: 14px; /* Set font size */
+            color: dodgerblue; /* Set text color */
+            margin-bottom: 5px; /* Add space below the text */
+        }
+
+        /* Blog title */
+        .blog-text h2 {
+            font-size: 25px; /* Set font size */
+            color: #333; /* Set text color */
+            margin-bottom: 10px; /* Add space below the title */
+            font-weight: 600; /* Set font weight */
+        }
+
+        /* Blog post text content */
+        .blog-text p, ul {
+            font-size: 16px; /* Set font size */
+            color: #555; /* Set text color */
+            line-height: 1.6; /* Set line height for better readability */
+        }
+
+        /* Read more link */
+        .read-more {
+            display: inline-block; /* Display as an inline block */
+            margin-top: 10px; /* Add space above the link */
+            color: dodgerblue; /* Set link color */
+            font-weight: bold; /* Set font weight */
+        }
+
+        /* Internal navigation bar */
+        .internal-nav {
+            text-align: center; /* Center the navigation text */
+            padding: 10px; /* Add padding inside the navigation bar */
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 15px; /* Round the corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Add a shadow */
+        }
+        
+        /* Introduction heading */
+        .introduction {
+            font-size: 20px; /* Set font size */
+            color: #1E1E1E;
+            text-align: center; /* Center the text */
+            margin-bottom: 40px; /* Add space below the introduction */
+        }
+        .introduction h1{
+            font-size:40px;
+        }
+
+        /* Scroll to top button */
+        #go-to-top {
+            position: fixed; /* Fix the button to the screen */
+            bottom: 20px; /* Position at the bottom */
+            right: 20px; /* Position at the right */
+            padding: 10px 20px; /* Add padding inside the button */
+            background-color: #007bff; /* Set button background color */
+            color: rgb(20, 0, 90); /* Set button text color */
+            border-radius: 15px; /* Round the corners */
+        }
+
+        /* Image captions */
+        .image-container h3 {
+            color: rgb(0, 0, 0); /* Set text color */
+            text-shadow: 1px 1px whitesmoke; /* Add a subtle text shadow */
+            font-size: 15px; /* Set font size */
+        }
+
+        /* Hover effect for links in the image container */
+        .image-container a:hover {
+            font-weight: bold; /* Make the link text bold on hover */
+        }
+    </style>
+</head>
+<body>
+        <nav>
+            <div class="logo">🌊 Life Below Water</div>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="table.html">Table</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="Sitemap.html">Sitemap</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+    
+        <section class="video-background">
+            <video autoplay loop muted>
+                <source src="images/Main_BG.mp4" type="video/mp4">
+            </video>
+        </section>
+    <!-- Top section with the sidebar navigation -->
+    <section id="top">
+        <div class="container">
+            <div class="top-destination">
+                <!-- Intro link -->
+                <div class="top3 internal-nav">
+                    <i class="fas fa-water icon"></i> 
+                    <div>
+                        <h3><a href="#A1">Intro</a></h3>
+                    </div>
+                </div>
+                <!-- Insights link -->
+                <div class="top3 internal-nav">
+                    <i class="fas fa-map-marker-alt icon"></i>
+                    <div>
+                        <h3><a href="#A2">Insights</a></h3>
+                    </div>
+                </div>
+                <!-- Images link -->
+                <div class="top3 internal-nav">
+                    <i class="fas fa-umbrella-beach icon"></i> 
+                    <div>
+                        <h3><a href="#A3">Images</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog section with introduction and posts -->
+    <section id="content-blog">
+        <!-- Introduction section -->
+        <div class="introduction" id="A1">
+            <h1>Introduction</h1><!--Introduction title-->
+            <br>
+            <!--Description-->
+            <p>Welcome to our blog dedicated to marine conservation and the protection of ocean ecosystems. Here, we explore the challenges facing our oceans and highlight the importance of sustainable practices to preserve marine life for future generations. Dive into our articles to learn more about the critical issues affecting our oceans and how you can contribute to their protection.</p>
+        </div>
+
+        <!-- Content heading with links to blog posts -->
+        <div class="content-heading" id="A2">
+            <h1>Overfishing: Effects on Marine Life and Communities</h1><!--Heading-->
+            <br>
+            <!--Sub points-->
+            <ol>
+                <li><a href="#C1">The Impact of Overfishing on Marine Life</a></li>
+                <li><a href="#C2">Coral Reefs: The Rainforests of the Ocean</a></li>
+                <li><a href="#C3">The Role of Marine Protected Areas (MPAs) in Ocean Conservation</a></li>
+            </ol>
+        </div>
+
+        <!-- Blog posts container -->
+        <div class="blog-container">
+            <!-- Blog Post 1 -->
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="images/overfishing.jpg" alt="A fish swimming in the ocean"><!--Image-->
+                </div>
+                <div class="blog-text" id="C1">
+                    <span>18 July 2021</span><!--Date-->
+                    <h2>The Impact of Overfishing on Marine Life</h2><!--title-->
+                    <!--Description-->
+                    <p>Overfishing is one of the most pressing issues that threatens marine ecosystems worldwide. With advanced fishing technologies and the growing global demand for seafood, fish populations are being depleted faster than they can replenish. 
+                    The consequences of overfishing go beyond the loss of species; it also disrupts entire ecosystems, threatens the livelihoods of millions of people, 
+                    and damages marine habitats like coral reefs and the seafloor.</p>
+                    <br>
+                    <h3>Key Points:</h3>
+                    <ul>
+                        <li>Loss of Biodiversity - Overfishing leads to a decline in the diversity of marine species, including key fish populations that other animals rely on for food.</li>
+                        <li>Ecological Imbalance - When one species is overfished, it can create a ripple effect that harms other species in the ecosystem</li>
+                        <li>Impact on Coastal Communities - Overfishing can deplete resources that these communities depend on, leading to economic instability.</li>
+                        <li>Unsustainable Fishing Practices - Practices such as bottom trawling and using illegal, unreported, and unregulated (IUU) fishing methods contribute to the decline of marine life.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="images/coralreef.jpg" alt="A vibrant coral reef underwater"><!--Image-->
+                </div>
+                <div class="blog-text" id="C2">
+                    <span>22 August 2021</span><!--Date-->
+                    <h2>Coral Reefs: The Rainforests of the Ocean</h2><!--Title-->
+                    <!--Description-->
+                    <p>Coral reefs are often referred to as the "rainforests of the ocean" because of their biodiversity and importance to marine life. They are home to thousands of species of fish, mollusks, crustaceans, and other marine organisms. Unfortunately, coral reefs are facing unprecedented threats due to rising sea temperatures, ocean acidification, and human activities such as coastal development and pollution. The loss of coral reefs would not only be a blow to marine biodiversity but also have far-reaching economic and social consequences, particularly for coastal communities that rely on coral reefs for food, tourism, and protection from storms.</p>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="images/marine_protected_area.jpg" alt="A sea turtle entangled in plastic waste"><!--image-->
+                </div>
+                <div class="blog-text" id="C3">
+                    <span>5 September 2021</span><!--Date-->
+                    <h2>The Role of Marine Protected Areas (MPAs) in Ocean Conservation</h2><!--Title-->
+                    <!--Description-->
+                    <p>Marine Protected Areas (MPAs) are crucial for preserving biodiversity and supporting the regeneration of marine ecosystems. By designating certain areas as off-limits to certain types of human activity, MPAs allow marine life to thrive without the pressures of overfishing, pollution, and habitat destruction. These areas can also serve as a refuge for endangered species and help restore degraded ecosystems. MPAs are an essential tool in the fight to protect life below water and should be expanded and effectively managed to ensure the health of the oceans.</p>
+                    <br>
+                    <h3>Challenges Facing Marine Protected Areas</h3>
+                    <br>
+                    <dl>
+                        <dt>Insufficient Funding</dt>
+                        <dd>Enhanced surveillance and community engagement are key to reducing illegal activities.</dd>
+                        
+                        <dt>Overfishing and Illegal Activities</dt>
+                        <dd>Marine Protected Areas (MPAs) need to incorporate climate change adaptation strategies to protect vulnerable ecosystems.</dd>
+                        
+                        <dt>MPAs and Climate Change</dt>
+                        <dd>Integrating climate change adaptation strategies is essential for the protection of vulnerable marine ecosystems within MPAs.</dd>
+                    </dl>
+                      
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section for the image gallery -->
+    <section id="A3">
+
+        <!-- Container for the first set of images -->
+        <div class="image-container">
+            <h2>Top Ocean Wonders</h2> <!-- Heading for the first set of images -->
+            <!-- Image box for Devil's Rock -->
+        <div class="image-box" style="background-image: url('images/devilsrock.jpg');">
+                <h3>Devil's Rock</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Trincomalee Bay -->
+        <div class="image-box" style="background-image: url('images/trincomalee_bay.jpg');">
+                <h3>Trincomalee Bay</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Hikkaduwa Coral Beach -->
+        <div class="image-box" style="background-image: url('images/hikkaduwacoralbeach.jpg');">
+                <h3>Hikkaduwa Coral Beach</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Bentota Beach -->
+            <div class="image-box" style="background-image: url('images/bentotabeach.jpg');">
+                <h3>Bentota Beach</h3> <!-- Caption for the image -->
+            </div>
+        </div>
+
+        <!-- Container for the second set of images -->
+        <div class="image-container">
+            <h2>Top Marine Hotspots</h2> <!-- Heading for the second set of images -->
+            <!-- Image box for Maduganga -->
+            <div class="image-box" style="background-image: url('images/maduganga.jpg');">
+                <h3>Maduganga</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Kokkilai Lagoon -->
+            <div class="image-box" style="background-image: url('images/KokkilaiLagoon.jpg');">
+                <h3>Kokkilai Lagoon</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Bundala -->
+            <div class="image-box" style="background-image: url('images/Bundala.jpg');">
+                <h3>Bundala</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Negombo Lagoon -->
+            <div class="image-box" style="background-image: url('images/Negombo_lagoon.jpg');">
+                <h3>Negombo Lagoon</h3> <!-- Caption for the image -->
+            </div>
+        </div>
+
+        <!-- Container for the third set of images -->
+        <div class="image-container">
+            <h2>Top Blue Paradises</h2> <!-- Heading for the third set of images -->
+            <!-- Image box for Kudawa Beach -->
+            <div class="image-box" style="background-image: url('images/KudawaBeach.jpg');">
+                <h3>Kudawa Beach</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Marble Beach -->
+            <div class="image-box" style="background-image: url('images/MarbleBeach.jpg');">
+                <h3>Marble Beach</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Jungle Beach -->
+            <div class="image-box" style="background-image: url('images/JungleBeach.jpg');">
+                <h3>Jungle Beach</h3> <!-- Caption for the image -->
+            </div>
+            <!-- Image box for Mannar Island -->
+            <div class="image-box" style="background-image: url('images/Mannar_Island.jpg');">
+                <h3>Mannar Island</h3> <!-- Caption for the image -->
+            </div>
+        </div>
+
+    <!-- Section closing tag -->
+    </section>
+
+    <!-- "Go to Top" button -->
+    <div>
+        <a href="#top" id="go-to-top">Go to Top</a> <!-- Link to scroll back to the top of the page -->
+    </div>
+</body>
+</html>

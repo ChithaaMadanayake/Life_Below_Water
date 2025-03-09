@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Character encoding and viewport settings for responsive design-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Automatically redirects the page to home.html after 4 seconds-->
+    <meta http-equiv="refresh" content="4; url=home.html">
+    
+   
+    <!--Add webpage title-->
+    <title>Splash Screen</title>
+    <style>
+        /*Style for whole page*/
+        body {
+            background: url("life_underwater.jpg");/*Background image*/
+            background-repeat: no-repeat;/* Prevents background from repeating */
+            background-size:cover;/*background image cover the entire screen */
+            overflow:hidden;/* Hides scrollbars */
+            display: flex;/* Uses flexbox for centering content */
+            justify-content: center;/* Centers content horizontally */
+            align-items: center;/* Centers content vertically */
+            font-family: Arial, sans-serif; /* Sets font style */
+            animation:fadeOut 1s ease-in-out 6s forwards;/* Fade out the body after 6s */
+        }
+        /* Container for splash screen content */
+        .splash-container {
+            text-align: center;/* Centers text inside the container */
+            display: flex;
+            flex-direction: column;/* Arranges items vertically */
+            justify-content: center;
+            align-items: center;
+            animation: fadeOut 1s ease-in-out 3s forwards;/* Fade out the container after 3s */
+            margin-top:100px;/* Pushes content down */
+        }
+        /* Heading styling */
+        h1 {
+            font-family:'Poppins',sans-serif;
+            font-size:75px;/* Sets font size */
+            color: rgb(68, 9, 231);/* Sets text color */
+            font-weight: 700;/*Makes bold text*/
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);/* Adds text shadow */
+            opacity: 0;/* Initially hides text */
+            animation: fadeIn 2s ease-in-out forwards;/* Fade in effect */
+        }
+        /* Paragraphs and subehadings styling*/
+        p, h2{
+            color: black;
+            font-size: 30px;/* Sets text size */
+            font-family: 'Roboto', sans-serif;
+            font-weight:bold;
+            /* Adds space around elements*/
+            margin:20px;
+            padding-left:30px;
+            padding-right:20px;
+            text-align: center;/* Centers text */
+            justify-content:center;
+            vertical-align:center;
+            opacity: 0;/* Initially hides text */
+            animation: fadeIn 3s ease-in-out forwards; /* Fade in effect */
+        }
+        
+        
+         /* Moving fish animation */
+        .fish1 img {
+            position: absolute;
+            font-size: 100px; /* Make the fish icons bigger */
+            color: blue; /* Make the fish icons blue */
+            top: 50%; /* Positions fish vertically at the center */
+            left: -10%; /* Starts fish offscreen on the left */
+            white-space: nowrap; /* Prevent line breaks */
+            animation: moveRight 8s forwards;/* Moves fish to the right */
+            width:10%;/*Sets width of fish1 */
+
+        }
+
+        /* Female symbol */
+        .fish2 img {
+            width:10%;/*Sets width of fish1 */
+            position:absolute;
+            opacity:0;/* Initially hides fish */
+            bottom:130px;/* Sets bottom spacing */
+            animation: moveLeft 8s forwards;/* Moves fish to the left */
+            z-index:-1;/* Moves fish behind other elements */
+            
+        }
+        /* Individual fish animation timings */
+        /* First fish appears near the top */
+        .fish1 img:nth-child(1) {
+            animation: moveRight 8s forwards;
+            animation-delay: 0s;
+            top:15%
+        }
+        /* Second fish appears around the middle */
+        .fish1 img:nth-child(2) {
+            animation: moveRight 8s forwards;
+            animation-delay: 0s;
+            top:45%
+        }
+        /* Third fish appears around the bottom */
+        .fish1 img:nth-child(3) {
+            animation: moveRight 8s forwards;
+            animation-delay: 0s;
+            top:75%
+        }
+        /* First fish appears at the very top */
+        .fish2 img:nth-child(1) {
+            animation: moveLeft 8s forwards;
+            animation-delay: 0s;
+            top:0%
+        }
+         /* Second fish appears a bit lower */
+        .fish2 img:nth-child(2) {
+            animation: moveLeft 8s forwards;
+            animation-delay: 0s;
+            top:30%
+        }
+        /* Third fish appears near the lower middle */
+        .fish2 img:nth-child(3) {
+            animation: moveLeft 8s forwards;
+            animation-delay: 0s;
+            top:60%
+        }
+        /* AquaBytes text styling */
+        .aqua-bytes {
+            font-size: 30px;
+            font-family: 'Pacifico', cursive; 
+            font-weight: bold;
+            text-shadow: 2px 2px  rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Animation for moving fish from left to right */
+        @keyframes moveRight {
+            0% { left:5%; opacity: 0; }/* Start position slightly offscreen on the left,initally invisible*/
+            100% { left:100%; opacity: 1;transform: translateX(-50%); }/* Moves fully across the screen to the right ,becomes visible,/* Adjusts position to center properly */
+        }
+
+        /* Animation for moving fish from right to left */
+        @keyframes moveLeft {
+            0% {right:5% ; opacity: 0;transform: scaleX(-1) translateX(0px); }/* Start position slightly offscreen on the right,Initially invisible,Flips the fish horizontally */
+            100% { right:100%; opacity: 1;transform: scaleX(-1) translateX(0px);}/* Moves fully across the screen to the left,becomes visible */
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }/* Initially invisible, Starts slightly lower */
+            100% { opacity: 1;transform: translateY(0); }/* Becomes fully visible,Moves to original position  */
+        
+        }
+        /* Fade out animation */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;/* Starts fully visible */
+            }
+            to {
+                opacity: 0;/* Gradually disappears */
+            }
+        }
+        .members {
+            text-align: center;/*centers the text inside members section*/
+            margin-bottom: 20px; /*  Adds spacing below the 'AquaBytes' heading */
+        }
+
+        .members ul {
+            list-style: none; /* Removes default bullet points from the list */
+            padding: 0;/* Removes default padding to align the list properly */
+        }
+
+        .members li {
+            color: black; /* Sets the text color to black */
+            font-weight:bold;/* Makes the text bold */
+            border-radius: 10px;/* Rounds the corners of each list item */
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);/* Adds a soft shadow effect for depth */
+            background-color: whitesmoke;/* Sets a light background color */
+            padding: 10px 20px; /* Adds spacing inside each list item for better readability */
+            margin: 10px auto;/* Adds spacing around each list item and centers them horizontally */
+            display: inline-block;/* Ensures the list items are sized based on their content and align in a row */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="splash-container">
+        <!-- Fish animations -->
+        <div class="fish1">
+            <img src="images/fish.png" alt="Animated fish swimming across the screen">
+            <img src="images/fish.png" alt="Animated fish swimming across the screen">
+            <img src="images/fish.png" alt="Animated fish swimming across the screen">
+        </div>
+        <div class="fish2">
+            <img src="images/fish.png" alt="Animated fish swimming across the screen">
+            <img src="images/fish.png" alt="Animated fish swimming across the screen">
+            <img src="images/fish.png" alt="Animated fish swimming across the screen">
+        </div>
+        
+        
+        <!-- Main heading and tagline -->
+        <h1>Life UnderWater</h1>
+        <p>"Protecting Our Oceans, Preserving Our Future"</p>
+        <h2 class="aqua-bytes">By AquaBytes🐟</h2>
+        <!-- List of Student names-->
+        <div class="members">
+            <ul>
+                <li>Yenulka Desilva</li>
+                <li>Chithaa Madanayake</li>
+                <li>Buddhi Jothirathne</li>
+                <li>Hashma Humam</li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+</html>
