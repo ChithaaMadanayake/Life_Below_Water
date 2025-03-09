@@ -1,0 +1,163 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body {
+   margin: 0;
+   padding:0;
+   background-color: #0B0845;
+   display: flex;
+   flex-direction: column;
+   justify-content: stretch;
+   align-items: stretch; 
+   width: 100%;
+   height: max-content; 
+}
+
+.head-img {
+    float: left;
+    padding-left: 50px;
+    padding-right: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container_1 {
+    position: relative;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+
+
+.tooltip {
+    position: absolute;
+    display: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.icons{
+    display: flex;
+}
+ .icons a{
+    color:rgb(255, 0, 0);
+ }
+
+ ul{
+    list-style-type: none;
+ }
+
+ ul a{
+    text-decoration: none;
+ }
+ li{
+    color:#777777;
+    font-size: small;
+ }
+
+ /*footer*/
+
+ 
+
+.use-links {
+    display: flex;
+    flex-direction: column;
+    
+ }
+
+ .use-links ul{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+ }
+
+ 
+
+
+
+
+h1 {
+    text-align: center;
+    margin-top: 3%; 
+    padding-right:40px;
+    color: white;
+    
+}
+
+.svg-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .svg {
+    width: 100%;
+    height: auto;
+    min-width: 1440px; 
+  }
+
+.circle {
+    fill:#0278A0;
+    transition: fill 0.3s;
+}
+
+.circle:hover {
+    fill: #03A678;
+    cursor: pointer;
+    border-color: #25a244;
+    border-width: 3px;
+}
+.selipse{
+    fill: #89CFF0;
+    transition: fill 0.3s;
+}
+
+.selipse:hover {
+    fill: #03A678ce ;
+    cursor: pointer;
+    border-color: #ffffff;
+    border-width: 3px;
+}
+.sword{
+    font-size: 11.8px;
+    
+    pointer-events: none;
+    fill: white;
+}
+
+.word {
+    font-size: 15px;
+    font-weight: bold;
+    pointer-events: none;
+    fill: white;
+
+}
+
+
+
+  @media screen and (max-width: 1440px) {
+    .svg-container {
+      overflow-x: scroll;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .svg {
+      height: 800px; 
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .svg {
+      height: 1000px; 
+    }
+  }

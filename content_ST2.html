@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Conservation Efforts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/Main.css">
+    <style>
+        body {
+            background-color: #0B0845;
+            color: #DFE4E7;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .header-content {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(to right, #4DB8FF, #33A1CC);
+            color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-content h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .header-content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .header-content::after {
+            content: url('https://www.example.com/graphics/ocean-wave.png');
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+            height: auto;
+            z-index: -1;
+        }
+
+        .about-section {
+            background: url('https://www.example.com/graphics/ocean-background.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 60px 40px;
+            color: #DFE4E7;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1E1E1E;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-section::before {
+            content: '';
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .conservation-projects {
+            padding: 80px 40px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .project h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #4DB8FF;
+        }
+
+        .project p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #DFE4E7;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover img {
+            opacity: 0.7;
+        }
+
+        .project i {
+            font-size: 40px;
+            color: #4DB8FF;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .project:hover i {
+            color: #33A1CC;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #b7bdec;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="logo">🌊 Life Below Water</div>
+        <nav>
+            <div class="logo">🌊 Life Below Water</div>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="table.html">Table</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="Sitemap.html">Sitemap</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+    <section class="video-background">
+        <video autoplay loop muted>
+            <source src="images/Main_BG.mp4" type="video/mp4">
+        </video>
+    </section>
+    <section class="about-section" id="about">
+        <h2><br>Our Vision for the Oceans</h2>
+        <p>Our conservation projects are built on the understanding that the oceans are crucial to life on Earth. They regulate climate, provide oxygen, and sustain the ecosystems of countless marine species. By tackling pollution, overfishing, and habitat destruction, we aim to restore and protect these invaluable resources for future generations.</p>
+    </section>
+
+    <section class="conservation-projects">
+        <h2 class="section-title">Our Conservation Projects</h2>
+        <div class="project">
+            <i class="fas fa-water"></i>
+            <img src="images/Coral.jpg" alt="Coral Reef Restoration">
+            <h3>Coral Reef Restoration</h3>
+            <p>We’re rebuilding coral reefs that have been damaged by human activity and climate change. Our efforts aim to provide safe havens for marine species and support biodiversity.</p>
+        </div>
+        <div class="project">
+            <i class="fas fa-trash-alt"></i>
+            <img src="images/plastic.jpg" alt="Plastic Pollution Reduction">
+            <h3>Plastic Pollution Reduction</h3>
+            <p>Plastic waste is a silent killer of marine life. We work with communities to clean up beaches and reduce plastic use, advocating for better recycling practices and alternatives.</p>
+        </div>
+        <div class="project">
+            <i class="fas fa-fish"></i>
+            <img src="images/fishing.jpg" alt="Sustainable Fishing Initiatives">
+            <h3>Sustainable Fishing</h3>
+            <p>By promoting sustainable fishing methods, we aim to protect marine species from overexploitation and ensure that future generations benefit from healthy fish populations.</p>
+        </div>
+        <div class="project">
+            <i class="fas fa-turtle"></i>
+            <img src="images/marine.jpg" alt="Marine Wildlife Protection">
+            <h3>Marine Wildlife Protection</h3>
+            <p>We protect endangered species like sea turtles and whales through focused conservation efforts that prevent habitat destruction and support safe migration routes.</p>
+        </div>
+        <!-- Additional Project Cards -->
+        <div class="project">
+            <i class="fas fa-leaf"></i>
+            <img src="images/Mangrove.jpg" alt="Mangrove Restoration">
+            <h3>Mangrove Restoration</h3>
+            <p>We’re working on restoring mangrove forests that serve as vital ecosystems for both marine and terrestrial species. These areas act as a buffer against coastal erosion and provide a nursery for fish.</p>
+        </div>
+        <div class="project">
+            <i class="fas fa-sea-turtle"></i>
+            <img src="images/Turtle.jpg" alt="Sea Turtle Conservation">
+            <h3>Sea Turtle Conservation</h3>
+            <p>We’re dedicated to protecting sea turtles from threats like poaching, habitat destruction, and entanglement in fishing nets. Our programs support the recovery of endangered species.</p>
+        </div>
+        
+        <div class="project">
+            <i class="fas fa-umbrella-beach"></i>
+            <img src="images/Cleanup.jpg" alt="Beach Cleanup Initiatives">
+            <h3>Beach Cleanup Initiatives</h3>
+            <p>Our beach cleanup programs focus on removing harmful waste, particularly plastics, from shorelines, preventing debris from entering the oceans and endangering marine wildlife.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Life Below Water - All Rights Reserved</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
